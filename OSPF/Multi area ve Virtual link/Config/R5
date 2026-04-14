@@ -1,0 +1,22 @@
+R5(config)#
+
+interface Loopback0
+ ip address 5.5.5.5 255.255.255.255
+ no sh
+
+interface GigabitEthernet0/0
+ ip address 10.0.13.2 255.255.255.252
+ no sh
+ ip ospf 1 area 20
+ 
+
+interface GigabitEthernet1/0
+ ip address 10.0.14.1 255.255.255.252
+ no sh
+ ip ospf 1 area 30
+ 
+router ospf 1
+ router-id 5.5.5.5
+ area 20 virtual-link 3.3.3.3
+
+
