@@ -1,0 +1,25 @@
+R6(config)#
+
+interface Loopback0
+ ip address 6.6.6.6 255.255.255.255
+ no sh
+
+interface GigabitEthernet0/0
+ ip address 10.0.14.2 255.255.255.252
+ no sh
+ ip ospf 1 area 30
+
+interface GigabitEthernet1/0
+ ip address 172.16.3.1 255.255.255.0
+ no sh
+ ip ospf 1 area 30
+
+interface GigabitEthernet2/0
+ ip address 172.16.4.1 255.255.255.0
+ no sh
+ ip ospf 1 area 30
+
+router ospf 1
+ router-id 6.6.6.6
+ passive-interface GigabitEthernet1/0
+ passive-interface GigabitEthernet2/0
