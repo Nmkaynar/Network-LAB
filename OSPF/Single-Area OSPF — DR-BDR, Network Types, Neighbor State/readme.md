@@ -20,11 +20,12 @@ Komşuluk kurma sürecinde tüm logları görebilmek için R3 de debug ip ospf a
 
 R3 ile R1 arasındaki komşulukta R3'ün DR olmasını istiyor isek R1'in ospf komşuluğu down olması gerekiyor. clear ip ospf process komutunu çalıştırarak komşuluk oluşturma süreceini tekrar başlattık.
 
-<img width="1198" height="672" alt="image" src="https://github.com/user-attachments/assets/febfb26e-770f-40a4-9f46-65db95d5e96f" />
+<img width="1123" height="824" alt="image" src="https://github.com/user-attachments/assets/5334b175-14c9-4fc1-8807-727616381c46" />
+
 
 ## 2 WAY
 
-2 way iletişimde her iki routerda birbirine hello paketi göndermiştir.
+2 way iletişimde her iki routerda birbirine hello paketi göndermiştir. Ve hello paketlerinde kendi router-id lerini görmüşlerdir.
 
 <img width="439" height="20" alt="image" src="https://github.com/user-attachments/assets/d4139e07-9e99-4b52-ae14-4505e28720a5" />
 
@@ -32,7 +33,9 @@ Burada DR/BDR seçimi yapılmaya başlandı. Priorty her ikisinde defaultta 1 ol
 
 <img width="625" height="108" alt="image" src="https://github.com/user-attachments/assets/e9d69cee-e84c-4300-8e85-1e6f4373a27d" />
 
-R3 artık R1'e DBD paketi göndermeye başlar. Bu pakette rota bilgisi yoktur, amaç master/slave seçimi içindir. Router-id'si büyük olan master olur.
+## EXSTART State
+
+R3 artık R1'e DBD paketi göndermeye başlar. Bu pakette rota bilgisi yoktur. Amaç master/slave seçimi içindir. Router-id'si büyük olan master olur.
 
 <img width="563" height="28" alt="image" src="https://github.com/user-attachments/assets/1331d8ba-cb7c-440c-b97f-9632a758d8f4" />
 
@@ -40,10 +43,13 @@ Bir önceki seq number ile gönderilen paketin reply paketi geldi ve flag 0*0 ş
 
 <img width="771" height="45" alt="image" src="https://github.com/user-attachments/assets/0c0bb6e5-e9af-4ee2-bee9-139beac92c2c" />
 
+## EXCHANGE State
+
 Artık LSA paketlerinin gönderimi ve rota bilgileri alınarak opsf areasındaki tüm rotalar öğrenilmeye başlanır. En sonda 
 
 <img width="751" height="137" alt="image" src="https://github.com/user-attachments/assets/4a4f75fa-eff8-48e0-a201-a4f2cb79faf6" />
 
+## FULL  State
 LSA paketleri de gönderildikten sonra exchange işlemi biter ve state FULL duruma geçer, akabinde syslog logu ekrana gelir.
 <img width="757" height="71" alt="image" src="https://github.com/user-attachments/assets/36ec4281-a112-4654-b534-f39bc2437d24" />
 
