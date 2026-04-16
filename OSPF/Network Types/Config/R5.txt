@@ -1,0 +1,17 @@
+R5(config)#
+
+conf t
+
+interface Loopback0
+ ip address 5.5.5.5 255.255.255.255
+ no sh
+
+interface serial 6/1
+ ip address 172.16.1.1 255.255.255.252
+ no sh
+
+router ospf 1
+ router-id 5.5.5.5
+
+interface serial 6/1
+ ip ospf 1 area 0
