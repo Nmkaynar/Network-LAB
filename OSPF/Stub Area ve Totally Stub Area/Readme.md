@@ -1,25 +1,19 @@
 ## Stub ve Totally Stub Area 
 
 
-Bu lab çalışması, stub area ve totally stub area anlatmakta ve farkını göstermektedir.
+Bu lab çalışması, stub area ve totally stub area anlatmakta ve farkını göstermektedir. Burada  R1'e GigabitEthernet2/0'dan connect olan 172.16.1.0/24  networkünü ospf altında "redistribute connected subnets" şeklinde external olarak enjekte ettik.
 
 <p><img width="927" height="602" alt="image" src="https://github.com/user-attachments/assets/05533a9d-1b7e-4acd-a739-8d75e270ac47" /></p>
 
-
-
-
-
-
 ## Stub area  
- Stub area olarak yapılandırılan bir ospf areasında ABR router, ASBR routerdan alınan LSA 5 tipindeki paketleri engelleyerek yeni bir LSA 3 üreterek default route olarak  stub area enjekte eder. Bu da bir den fazla olan external rotaları tek bir satıra  indirerek cihaz yükünü azaltmayı amaçlamaktadır.
+ Stub area olarak yapılandırılan bir ospf areasında ABR router, ASBR routerdan alınan LSA 5 tipindeki paketleri engelleyerek  yerine default route gönderir. Bu da bir den fazla olan external rotaları tek bir satıra  indirerek cihaz yükünü azaltmayı amaçlamaktadır.
 
 ## Ne zaman kullanılır.
   Tüm external rotaya giden tek bir çıkış noktası var ise kullanılabilir.
 
 
-Burada  R1'e GigabitEthernet2/0'dan connect olan 172.16.1.0/24  networkünü ospf altında "redistribute connected subnets" şeklinde external olarak enjekte ettik.
-
-Stub area yapılandırmasına geçmeden önce R3 ve R5 routerından show ip route çıktısında bakalım. 172.16.1.0/24 networkü E2 olarak görülmektedir.
+## Yapılandırma öncesi Routing Table 
+Stub area yapılandırmasına geçmeden önce R3 ve R5 routerından show ip route çıktısına bakalım. 172.16.1.0/24 networkü E2 olarak görülmektedir.
 
 Farklı arealardan gelen rotalarda IA olarak görülmektedir. 
 
