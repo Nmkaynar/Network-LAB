@@ -1,7 +1,7 @@
 ## Stub ve Totally Stub Area 
 
 
-Bu lab çalışması, stub area ve totally stub area kavramlarıno ele almmakta ve aralarındaki fark gösterilmektedir. Burada  R1'e GigabitEthernet2/0'dan connect olan 172.16.1.0/24  networkünü ospf altında "redistribute connected subnets" şeklinde external olarak enjekte ettik.
+Bu lab çalışması, stub area ve totally stub area kavramlarıno ele almakta ve aralarındaki fark gösterilmektedir. Burada  R1'e GigabitEthernet2/0'dan connect olan 172.16.1.0/24  networkünü ospf altında "redistribute connected subnets" şeklinde external olarak enjekte ettik.
 
 <p><img width="927" height="602" alt="image" src="https://github.com/user-attachments/assets/05533a9d-1b7e-4acd-a739-8d75e270ac47" /></p>
 
@@ -97,7 +97,7 @@ Totally stub yapılandırmadan önce R5'te LSA 4 ve LSA 5 bilgileri mevcuttur. A
 
 
 ### Totally stub area sonrası R5 
-ABR router olan R4 hem LSA 3 olarak gelen rotaları hem de LSA 5 olarak gelen rotaları engelleyerek sadece default rota göndermektedir.
+ABR router olan R4 hem LSA 3, LSA 4 ve LSA 5 olarak gelen rotaları engelleyerek sadece default route göndermektedir.
 
 <img width="700" height="390" alt="image" src="https://github.com/user-attachments/assets/85b3a5b8-f70f-4c76-9975-92d132220363" /> <br>
 
