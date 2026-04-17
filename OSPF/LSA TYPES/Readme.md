@@ -79,12 +79,18 @@ Bu kısım OSPF dışından öğrenilen rotaları duyoran LSA'ları gösterir.
 - ADV router   Bu rotayı duyuran ASBR Router'ın Router-id'si
 ```
 
+## LSA Type 7 - AS External Link States
+Bu kısım OPSF'de NSSA (Not So Stubby Area) içinde kullanılır. Stub arealarda LSA 5'ler giremez.
+
+Ancak bazı durumlarda stub arealara da external rota duyurulması gerekmektedir. 
+
+Bu durumda area NSSA olarak yapılandırılarak External rotaları, Type 7 LSA ile duyurur.
 
 
+<img width="801" height="362" alt="image" src="https://github.com/user-attachments/assets/21baaa90-a29c-47fb-b5f2-e59455953f47" />
 
-
-
-
+- NSSA içindeki ASBR router tarafından üretilir
+- Type 7 LSA ABR router'a gelince ABR router LSA 5'e dönüştürerek area 0 yayar.
 
 
 
