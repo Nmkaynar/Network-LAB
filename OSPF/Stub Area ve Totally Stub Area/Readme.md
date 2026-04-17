@@ -1,7 +1,7 @@
 ## Stub ve Totally Stub Area 
 
 
-Bu lab çalışması, stub area ve totally stub area kavramlarıno ele almakta ve aralarındaki fark gösterilmektedir. Burada  R1'e GigabitEthernet2/0'dan connect olan 172.16.1.0/24  networkünü ospf altında "redistribute connected subnets" şeklinde external olarak enjekte ettik.
+Bu lab çalışması, stub area ve totally stub area kavramlarını ele almakta ve aralarındaki fark gösterilmektedir. Burada  R1'e GigabitEthernet2/0'dan connect olan 172.16.1.0/24  networkünü ospf altında "redistribute connected subnets" şeklinde external   olarak enjekte edilmiştir.
 
 <p><img width="927" height="602" alt="image" src="https://github.com/user-attachments/assets/05533a9d-1b7e-4acd-a739-8d75e270ac47" /></p>
 
@@ -39,7 +39,7 @@ R3 de yapılandırılınca komşuluk tekrar full state oldu.
 <img width="947" height="157" alt="image" src="https://github.com/user-attachments/assets/647f0cda-a82e-4a90-8129-e4d22afb603d" /> <br>
 
 
-R3 te tekrardan show ip route çıktısına baktığımızda ABR router olan R2  E2 olan external rota içeren LSA 5 engelledi ve area 1'e default route enjekte etti.
+R3 te tekrardan show ip route çıktısına baktığımızda ABR router olan R2,  E2 olan external rota içeren LSA 5 engelledi ve area 1'e default route enjekte etti. 
 
 <img width="739" height="275" alt="image" src="https://github.com/user-attachments/assets/2bfe1393-9706-4400-b414-ec39e1375a05" /> <br>
 
@@ -78,11 +78,12 @@ Aynı şekilde komşusunda da girmeliyiz.
 ## Show ip ospf database  
 
 ### R3 
+Stub area yapılandırmadan önce R3'te LSA 4 ve LSA 5 bilgileri mevcuttur.
 
 <img width="761" height="620" alt="image" src="https://github.com/user-attachments/assets/0aae577e-206a-4ba6-bfa0-31ebaf64a688" /> <br>
 
 ### Stub area sonrası R3 
-ABR router olan R2, gelen Type-5 LSA'ları engelleyerek yeni bir Type-3 LSA üreterek default  route enjekte etmiştir.
+ABR router olan R2, gelen Type-5 ve Type-4 LSA'ları engelleyerek yeni bir Type-3 LSA üreterek default route enjekte etmiştir.
 
 
 <img width="784" height="466" alt="image" src="https://github.com/user-attachments/assets/1fddb073-5b6a-41a6-8eb7-f6f8c325d588" /> <br>
