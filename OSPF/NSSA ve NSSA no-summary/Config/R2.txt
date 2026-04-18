@@ -1,0 +1,30 @@
+R2(config)#
+
+conf t
+
+
+interface gi0/0
+ ip address 10.0.12.2 255.255.255.252
+ no sh
+
+interface gi1/0
+ ip address 10.0.13.1 255.255.255.252
+ no sh
+
+
+interface gi2/0
+ ip address 10.0.14.1 255.255.255.252
+ no sh
+
+
+router ospf 1
+ router-id 2.2.2.2
+
+inter gi0/0 
+ ip ospf 1 area 0
+
+inter gi1/0
+ ip ospf 1 area 1
+
+inter gi2/0
+ ip ospf 1 area 2
