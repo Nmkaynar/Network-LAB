@@ -55,11 +55,15 @@ Komut aktif ettikten sonra R3'de default rota TYPE 7 LSA olarak duyurulur ve rou
 ## NSSA no-summary
 
 Eğer inter area'lardan gelen rotalarıda engellemek sadece tek bir default rota duyrulmasını istiyor isek NSSA'yı ABR routerda no-summary ile yapılandırmalıyız.
-ABR olan R2 Router
+
+### Config 
+ABR olan R2 Router<br>
 <img width="425" height="37" alt="image" src="https://github.com/user-attachments/assets/0f1d82b2-145c-45dd-84c8-844b46088ed7" />
 
+Config sonrası ABR router gelen tüm LSA 3 rotalarınıda engelleyip Area 1'e sadece LSA 3 ile default rotayı duyurdu.
+LSA 3 ile duyurduğu için routing table da ``O*IA`` şeklinde, Yukarıda LSA 7 ile duyurduğunda ``O*N2`` şeklinde gözüküyordu.
 
-
+<img width="751" height="587" alt="image" src="https://github.com/user-attachments/assets/72993def-680f-4640-a7f7-e75b6b0b6b8d" />
 
 
 
