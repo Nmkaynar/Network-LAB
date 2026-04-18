@@ -55,6 +55,9 @@ MD5 ile yapılandırıldığında hello paketinde kimlik doğrulama kısmı gör
 
 <img width="743" height="347" alt="image" src="https://github.com/user-attachments/assets/a46eb17f-1ee7-4915-a783-9708cd4b30aa" />
 
+Auth Type: Cryptographic (2) — parola gönderilmez
+Key ID: 1 — her iki tarafta eşleşmeli
+Auth Crypt Data: hash değeri görünür, parolaya ulaşılamaz
 
 ### NOT
 Authentication bir kimlik doğrulama olduğu için, giden paketlerde datayı şifrelemez. Yami LS update paketlerinde gönderilen networkler tespit edilebilir. 
