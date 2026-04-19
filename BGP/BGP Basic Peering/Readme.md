@@ -16,6 +16,7 @@ BGP protokolü hem external(eBGP) hem de internal (IBGP) olarak kullanılabilir.
 BGP bir neighbor ile peer olabilmek için şunlara ihiyaç duyar:
 - TCP 179 bağlantısı, iki router arasında önce TCP 3-way handshake olur. BGP bunun üstünde çalışır
 - Neighbor tanımı, ``router bgp <AS-NO>`` altında `` neighbor < karşı tarafın IP addresi> remote-as <Karşı tarafın AS-NO>``  komutu ile yapılmaktadır.
+- Komşuluk loopback üzerinden yapılacak ise ``neighbor x.x.x.x ebgp-multihop 2`` eklenmelidir.
 
 
 ## Config
