@@ -9,6 +9,8 @@ BGP protokolü hem external(eBGP) hem de internal (IBGP) olarak kullanılabilir.
 - Hold süresi 180 sn dir.
 - Update paketi ile değişiklik var ise gönderilir. 
 - Konuşma süreci unicast gerçekleşir.
+- AS_PATH ile loop Prevention yapar. Başkasından öğrendiği rotalarda kendi AS'ini görürse, paketi drop eder.
+  
 	
 ## eBGP Peering Nasıl Kurulur?
 BGP bir neighbor ile peer olabilmek için şunlara ihiyaç duyar:
@@ -48,9 +50,35 @@ Yapılandırma tamamlandıktan sonra her iki konsolda BGP komşuluğu up mesajla
 BGP komşuluğu kurulduktan sonra her iki router da duyurdukları networkleri birbirine öğretti. <br><br>
 <img width="1494" height="221" alt="image" src="https://github.com/user-attachments/assets/a4b264b3-95bf-444e-9ea2-0d30217719e4" />
 
+show bgp summary çıktısı
+<img width="831" height="291" alt="image" src="https://github.com/user-attachments/assets/805d9582-5cdc-49ea-a132-31a2409d09e3" />
 
-## BGP komşuluk Kurulum Süreci
+show bgp neighbors çıktısı
+<img width="858" height="330" alt="image" src="https://github.com/user-attachments/assets/212c738b-b867-409e-be4e-e1e8ee589e88" />
 
+
+
+## BGP State'leri
+
+### IDLE 
+BGP henüz başlamadı.
+
+### Connect
+TCP bağlantısının yapıldığı aşama
+
+### Ative 
+TCP başarısız, tekrar deniyor
+
+### OpenSent
+TCP kuruldu, OPEN mesajı gönderildi.
+
+### OpenConfirm
+OPEN mesajı alındaı KEEPALIVE bekliniyor
+
+### Established
+Komşuluk kuruldu Peer aktif.
+
+## Komşuluk Kurulum Sürecinde Gönderilen Paketler
 <img width="1096" height="195" alt="image" src="https://github.com/user-attachments/assets/7dc3d4d9-95ee-4c70-8306-71f0fd78b8bc" />
 
 ### TCP Handshake 
@@ -60,8 +88,9 @@ BGP komşuluğu kurulduktan sonra her iki router da duyurdukları networkleri bi
 - AS-NO, 65000
 - Version 4
 - Hold time 180
-- Router-id (192.168.10.1) <br>
+- Router-id <br>
 Bilgilerini içeren ilk tanışma mesajıdır.
+Not: Router-id girilmez ise, önce en büyük loopback adresi yoksa en büyük interface ip adresi router-id olur
 <img width="723" height="228" alt="image" src="https://github.com/user-attachments/assets/6ec22667-7fc9-40c4-83bd-7b344e44983b" />
 
 ## KEEPALIVE
