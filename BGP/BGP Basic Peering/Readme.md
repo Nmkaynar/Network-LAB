@@ -93,7 +93,7 @@ Bilgilerini içeren ilk tanışma mesajıdır.
 Not: Router-id girilmez ise, önce en büyük loopback adresi yoksa en büyük interface ip adresi router-id olur
 <img width="723" height="228" alt="image" src="https://github.com/user-attachments/assets/6ec22667-7fc9-40c4-83bd-7b344e44983b" />
 
-## KEEPALIVE
+### KEEPALIVE
 - OPEN mesajını kabul ettiğini ve komşuluğu başlattığı mesajdır.
 - Bu mesaj artık komşuluğun başladığını bildirir.
 - Komşuluk kurulduktan sonra 60 sn de bir gönderilir. 3 kere yani 180 sn boyunca keepalive mesajı alamazsa komşuluğu bitirir.
