@@ -99,4 +99,5 @@ Not: Router-id girilmez ise, önce en büyük loopback adresi yoksa en büyük i
 
 ### UPDATE MESSAGE
 - Router'ın duyurduğu ve öğrendiği rotaları bu paketle komşusuna duyurur.
-<img width="1687" height="590" alt="image" src="https://github.com/user-attachments/assets/82bbd3fb-bb6a-4ff8-ae1b-932d85cac05e" />
+<img width="743" height="485" alt="image" src="https://github.com/user-attachments/assets/b3003e64-7c62-41fa-8002-04730cf0c154" />
+
