@@ -30,14 +30,12 @@ R1 Router'da
 ````
 router bgp 65000
 neighbor 10.0.11.2 remote-as 65100
-network 10.0.11.0 mask 255.255.255.252
 network 192.168.10.0 mask 255.255.255.0
 ````
 R2 Router'da
 ```
 router bgp 65100
 neighbor 10.0.11.1 remote-as 65000
-network 10.0.11.0 mask 255.255.255.252
 network 172.16.10.0 mask 255.255.255.0
 ```
 
