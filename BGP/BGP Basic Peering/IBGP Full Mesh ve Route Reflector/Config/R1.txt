@@ -14,8 +14,3 @@ router bgp 65000
 bgp router-id 1.1.1.1
 neighbor 10.0.10.2 remote-as 65000
 network 192.168.10.0 mask 255.255.255.0
-
- 
-interface GigabitEthernet3/0
-  ip address 10.0.12.1 255.255.255.252
-  no sh
