@@ -106,3 +106,14 @@ R3 routing table
 
 ## Route Reflector de Neden Loop Yok
 
+Standar IBGP yapılandırmasında, split horizon kuralı gereği bir router IBGP komşusundan öğrendiği rotaları başka bir IBGP komşusuna advertise etmez. RR yapıldığında ise artık client olan IBPG komşularına bu rotaları advertise etmeye başlar. 
+
+Loop olmasını ise paketlere eklediği  ORIGINATOR_ID ve CLUSTER_LIST ile kontrol etmektedir. <br>
+ORIGINATOR_ID:  Networkü duyuran orjinal router'ın Router-id'si <br>
+CLUSTER_LIST :  RR router'ın kendi Router-id'si <br>
+Eğer Router'lar kendi ID'lerini görürlerse paketi drop ederler. <br>
+
+<img width="760" height="694" alt="image" src="https://github.com/user-attachments/assets/f3a2a320-b399-4b92-8a6a-ea09c3ffcd16" /><br>
+
+Görselde görüldüğü gibi bu paket R2'inin R3'e gönderdiği BGP Update paketi. R1'den öğrendiği 192.168.10.0/24 networkünü R3'e öğretirken Path Attribute'larına eklediği iki tane özellik mevcut. <br>
+Ancak kendi üzerindeki networkü öğretirken Path Attribute'larında ORIGINATOR_ID ve CLUSTER_LIST bulunmamaktadır.
