@@ -35,7 +35,7 @@ network 172.16.10.0 mask 255.255.255.0
 ````
 R1 de olduğu gibi R2 nin kendisinin duyurduğu networkü öğrenmiş
 <img width="508" height="81" alt="image" src="https://github.com/user-attachments/assets/48c68ceb-1aeb-4574-aee6-f52596b925f6" /><br>
-Tabloya baktığımızda IBGP loop engelleme özelliğinden dolayı R2, R1 'den öğrendiği networkü R3'e, R3 'ten öğrendiği networküde R1'e öğretmemiş. 
+Tabloya baktığımızda IBGP loop engelleme özelliğinden dolayı(Split horizon kuralı) R2, R1 'den öğrendiği networkü R3'e, R3 'ten öğrendiği networküde R1'e öğretmemiş. 
 Bu durumda yapılması gereken FULL MESH ya da Route Reflector.
 
 ## Full MESH
@@ -102,3 +102,7 @@ R1 routing table
 
 R3 routing table
 <img width="551" height="116" alt="image" src="https://github.com/user-attachments/assets/c93d2100-a8b9-47b3-8b8a-2847865c8225" /><br>
+
+
+## Route Reflector de Neden Loop Yok
+
