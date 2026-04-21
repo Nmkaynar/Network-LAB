@@ -79,6 +79,10 @@ Yani outbound yönünde kullanılmaz.
 <img width="665" height="44" alt="image" src="https://github.com/user-attachments/assets/eb82ff01-44cd-4633-af40-1efae1c2e952" />
 
 
+Wireshark'ta update paketinde taşınan Path attribute'lar  <br>
+<img width="787" height="233" alt="image" src="https://github.com/user-attachments/assets/e0f53a8a-95e8-4c25-86d5-5824929a2acd" />
+
+
 
 
 
