@@ -6,6 +6,7 @@ Cisco router üzerinde lokal olarak kullanılan bir “route preference” değe
 - Yani tamamen local decision tool’dur
 - Ciscoya özel bir attribute'dur. O yüzden farklı vendor cihazlarda bu değer yoktur. 
 - Defaultta kendi öğrettiği rota ise değeri 32768, başkasından öğrendiyse 0 dır.
+- Yüksek olan tercih edilir
 
 Bu değeri değiştirerek gelen BGP'nin seçtiği best path'e manipülasyon yapabiliriz.
 
