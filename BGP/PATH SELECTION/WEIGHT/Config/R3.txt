@@ -1,0 +1,26 @@
+R3(config)#
+
+conf t
+
+ 
+interface GigabitEthernet0/0
+ ip address 10.0.11.2 255.255.255.252
+ no sh
+
+interface GigabitEthernet1/0
+ ip address 10.0.14.1 255.255.255.252
+ no sh
+
+
+
+conf t
+router bgp 65300
+ bgp router-id 3.3.3.3
+ neighbor 10.0.11.1 remote-as 65100
+ neighbor 10.0.14.2 remote-as 65500
+
+
+
+
+
+
