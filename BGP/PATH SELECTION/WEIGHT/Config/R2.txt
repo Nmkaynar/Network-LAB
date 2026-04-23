@@ -12,7 +12,7 @@ interface GigabitEthernet1/0
  no sh
 
 
-conf t
+
 
 router bgp 65200
  bgp router-id 2.2.2.2
