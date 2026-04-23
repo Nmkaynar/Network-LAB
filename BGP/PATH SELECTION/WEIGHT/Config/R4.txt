@@ -13,7 +13,7 @@ interface GigabitEthernet1/0
 
 
 
-conf t
+
 router bgp 65400
  bgp router-id 3.3.3.3
  neighbor 10.0.12.1 remote-as 65100
