@@ -1,0 +1,36 @@
+ISP1(config)#
+
+conf t
+
+interface loopback0 
+ ip address 8.8.8.8 255.255.255.255
+ no sh
+
+interface loopback1
+ ip address 9.9.9.9 255.255.255.255
+ no sh
+
+
+
+interface GigabitEthernet 0/0
+ ip address 192.168.1.1  255.255.255.0
+ no sh
+
+
+router bgp 100
+ bgp router-id 100.100.100.100
+ neighbor 192.168.1.254 remote-as 65000
+ network 8.8.8.8 mask 255.255.255.255
+ network 9.9.9.9 mask 255.255.255.255
+
+ 
+
+
+
+
+ 
+
+
+
+
+
