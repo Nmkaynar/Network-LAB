@@ -11,13 +11,17 @@ interface GigabitEthernet1/0
  ip address 185.100.60.1 255.255.255.252
  no sh
 
+interface GigabitEthernet 2/0
+ ip address 10.0.10.254 255.255.255.0
+ no sh
+
 router bgp 100
  bgp router-id 2.2.2.2
 
  neighbor 10.0.10.1 remote-as 100
  neighbor 10.0.10.1 next-hop-self
  neighbor 185.100.60.2 remote-as 65000
-
+ neighbor 10.0.10.254 remote-as 200
 
 
 
