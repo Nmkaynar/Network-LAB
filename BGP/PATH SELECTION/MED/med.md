@@ -5,7 +5,7 @@
 - MED bir AS içerisine girdiken sonra o AS içinde yayılır ancak başka bir AS'e aktarılmaz. Yani AS 100 komşusu olan AS 200'e aktarır ancak AS 200  komşusu olan AS 300'e aktarmaz.
 - Defaultta 0 dır
 <img width="601" height="507" alt="image" src="https://github.com/user-attachments/assets/179c5181-5155-47d6-8101-e4e76ce600de" /><br>
-Şu anki topoloji de AS100'den AS65000 deki 172.16.10.0/24 networküne R1, R3 üzerinden R2 de R4 üzerinden gelmektedir.  R2 ninde R1->R3 şeklinde gelmesini istiyor isek MED değerini değiştirerek gelen trafiği manipüle edebiliriz.
+Şu anki topoloji de AS100'den AS65000 deki 172.16.10.0/24 networküne R1, R3 üzerinden R2 de R4 üzerinden gelmektedir.  R2 ninde R1->R3 üzerinden gelmesini istiyorsak MED değerini değiştirerek gelen trafiği manipüle edebiliriz.
 
 R1 Router'ı:
 <img width="656" height="93" alt="image" src="https://github.com/user-attachments/assets/968f8520-84a1-49e4-bc93-c9c3a8b88a42" /><br>
