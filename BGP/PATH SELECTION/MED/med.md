@@ -30,7 +30,7 @@ route map uygulandıktan sonra R2 artık R1'i tercih etmeye başladı.
 
 <img width="670" height="101" alt="image" src="https://github.com/user-attachments/assets/bc69ccec-5f0d-4c7c-8057-171a9632ff00" /><br>
 
-R1 de ise tek bir rota kaldı. Bunun sebebi de R2 daha önce ebgp den aldığı best rota olark görüyor ve onu advertise ediyordu. Artık best rota olarak görmediği için advertise etmiyor. Bu sebepten ötürüde R1 172.16.10.0/24 networkünü sadece R3'ten yani ebgp den öğrenmiş oluyor.
+R1 de ise tek bir rota kaldı. Bunun sebebi de R2 daha önce ebgp den aldığı best rota olark görüyor ve onu advertise ediyordu. Artık best rota olarak görmediği için advertise etmiyor. Peki R2 R1 den öğrendiği rotayı neden R1'e geri duyurmuyor. Bunun sebebide, Bir router ibgp den öğrendiği bir rotayı bir ibgp komşusuna advertise etmemesinden kaynaklı. Bu sebepten ötürüde R1 172.16.10.0/24 networkünü sadece R3'ten yani ebgp den öğrenmiş oluyor.
 <img width="650" height="84" alt="image" src="https://github.com/user-attachments/assets/382a329b-e017-4265-afd9-201a02ed54af" /><br>
 
 Wiresharkta BGP Update mesajı ile MED değerinin taşındığını görebiliriz.
