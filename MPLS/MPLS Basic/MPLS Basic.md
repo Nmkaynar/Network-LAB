@@ -72,7 +72,7 @@ Burada MPLS aktif olmadığı için herhangi bir label bulunmamaktadır. Default
 <img width="738" height="125" alt="image" src="https://github.com/user-attachments/assets/11808d41-1069-499d-b5bd-c8f28d79aeb4" />  
 
 ###  PE1- P1 Arasında 
-Burada gelen pakette destination ip için girilen statik route 4.4.4.4 idi.  Burada MPLS aktif olduğundan mpls forwarding table bakarark 4.4.4.4/32 satırında outgoing olarak 19 etiketi görülmekte ve next hop olarakta gi1/0-10.0.11.2 göürlmektedir.
+Burada gelen paketi 172.16.10.0/24 e göndermek için PE1 paketi 4.4.4.4'e göndermeye çalışır. PE1 de 4.4.4.4'ü ospften öğrenmiştir. MPLS ise bu öğrendiği 4.4.4.4 için 19 atayarak paketi next hopa yönlendirir
 <img width="688" height="217" alt="image" src="https://github.com/user-attachments/assets/cf955f7d-b28d-4ee7-9113-731a9e8f5a1c" />  
 
 PE1 router paketi gönderirken MPLS 19 etiketi basarak P1'e göndermektedir.
