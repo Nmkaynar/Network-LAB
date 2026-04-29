@@ -9,7 +9,7 @@ PE  : Provider Edge, ISP'nin müşterinin tarafındaki Kendi Routerları
 P   :  Bu routerlar PE arasında kalan ISP nin kendi altyapısında bulunan routerlar.
 <img width="1083" height="662" alt="image" src="https://github.com/user-attachments/assets/6932ed45-b59e-4081-9638-d5b86f9c9021" /><br>
 
-Bu topoloji de PC1, PC2ye ping atabilmesi için bütün routerların bir şekilde prefixleri öğrenmesi gerekmektedir.
+Bu topoloji de MPLS olmadan PC1, PC2ye ping atabilmesi için  bütün routerların bir şekilde prefixleri öğrenmesi gerekmektedir.
 
 MPLS ise bütün routerlara gerek olmadığını sadece PE routerlar tüm prefixleri bilmesinin yeterli olduğunu söyler.
 
