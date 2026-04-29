@@ -11,7 +11,7 @@ P   :  Bu routerlar PE arasında kalan ISP nin kendi altyapısında bulunan rout
 
 Bu topoloji de MPLS olmadan PC1, PC2ye ping atabilmesi için  bütün routerların bir şekilde prefixleri öğrenmesi gerekmektedir.
 
-MPLS ise bütün routerlara gerek olmadığını sadece PE routerlar tüm prefixleri bilmesinin yeterli olduğunu söyler.
+MPLS, forwarding işlemini label ile yaptığı için core routerların CE arkasındaki prefixlerini bilmesine gerek bırakmaz.
 
 CE'den PE'ye paketler ip forwarding ile gelir. Bir PE'den diğer PE'ye gidesiye kadar olan süreçte routerlar ip forwarding yerine label forwarding yaparlar.
 
