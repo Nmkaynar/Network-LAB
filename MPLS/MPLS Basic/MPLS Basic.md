@@ -15,7 +15,7 @@ MPLS ise bütün routerlara gerek olmadığını sadece PE routerlar tüm prefix
 
 CE'den PE'ye paketler ip forwarding ile gelir. Bir PE'den diğer PE'ye gidesiye kadar olan süreçte routerlar ip forwarding yerine label forwarding yaparlar.
 
-Yani bir P router'ına gelen pakette router destination IP'ye bakmak yerine label no ya bakar ve mpls forwarding table'a göre Next Hop'a yönlendirir. Burada P routerlar müşterinin prefixlerini bilmemektedir. Routing tablosunda sadece ospf ile öğrendiği rotalar mevcuttur.
+Yani bir P router'ına gelen pakette router destination IP'ye bakmak yerine label no ya bakar ve mpls forwarding table'a göre Next Hop'a yönlendirir. Burada P routerlar müşterinin prefixlerini bilmemektedir. 
 
 
 
