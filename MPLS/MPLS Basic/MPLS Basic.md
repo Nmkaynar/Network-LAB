@@ -27,7 +27,7 @@ MPLS, multi protocol Label switching demektir Yani CE den çıkan IP paketlerini
 etiket basarak sadece labele(etikete) göre swap ederek ıp paketlerini forwarding etmektedirler. 
 Yani herhangi bir destination ip adresine bakmamaktadırlar.
 
-Bu yöntemde ISP'nin kendi alt yapısındaki routerların devasa routing table tutmalarını ortadan kaldırmaktadır.
+Bu yöntemde ISP'nin kendi alt yapısındaki routerların CE  prefixleri Routing Table'da tutmalarını ortadan kaldırmaktadır.
 
 
 ## Config Nasıl yapılmaktadır
@@ -137,7 +137,7 @@ Etiketi çıkararak next hopa gönderir.
 Bu şekilde PE1 ve CE1 de ip forwarding yaparak paketi hedef ulaştırır.
 
 
-MPLS olmasa idi paket P1 ve P2 Routerında DST: 172.16.10.10 ip'sini bilmediği için drop olacaktı. 
+MPLS olmasa idi paket P1 ve P2 Routerında DST: 172.16.10.10 ip'sini bilmediği için drop olacaktı. Drop olmaması için CE arkasındaki Prefixleri öğrenmesi gerekirdi.
 
 
 
