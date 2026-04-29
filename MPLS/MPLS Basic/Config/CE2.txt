@@ -1,0 +1,14 @@
+CE2(config)#
+
+conf t
+
+
+interface GigabitEthernet 0/0
+ ip address 10.0.14.2 255.255.255.252
+ no sh
+
+interface GigabitEthernet 1/0
+ ip address 172.16.10.1 255.255.255.0
+ no sh
+ 
+ip route 0.0.0.0 0.0.0.0 10.0.14.1
