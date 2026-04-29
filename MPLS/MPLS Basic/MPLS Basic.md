@@ -1,6 +1,6 @@
 ## MPLS
 
-MPLS layer 3 seviyesinde paketleri ip forwarding yerine label forwarding ile forward eden bir yöntemdir. 
+MPLS layer 3 ile layer 2 arasında paketleri label forwarding ile forward eden bir yöntemdir. 
 
 
 MPLS de CE, PE ve P routerlar bulunmaktadır.  
