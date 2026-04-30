@@ -84,7 +84,7 @@ PE1 router paketi gönderirken MPLS 19 etiketi basarak P1'e göndermektedir.
 PE1 den gelen pakette P1 Router'ı MPLS 19 etiketini gördüğünde Mpls Forwarding Table'ında local 19 satırına bakar. 
 Bu satıra göre outgoing kısmı paketi gönderirken basacağı etiket, next hop olarak da 10.0.12.2'ye gönderir.
 <img width="691" height="151" alt="image" src="https://github.com/user-attachments/assets/b50d408b-0326-4143-8a54-f2d73228d8d0" />
-Bu tabloda local sütunu gelen paketteki etiket için ne yapalıcağını gösterir. 19 ile geldi 19 ile 10.0.12.2'ye göndermesini sağladı. MPLS LAbel kısmı internet protocol version 4 üstünde olduğundan ip forwarding yapmadı.
+Bu tabloda local sütunu gelen paketteki etiket için ne yapalıcağını gösterir. 19 ile geldi 19 ile 10.0.12.2'ye göndermesini sağladı. MPLS Label kısmı internet protocol version 4 headerın önünde olduğundan router önce labele bakar, label varsa label forwarding yaparak ip headerı incelemez
 
 <img width="768" height="178" alt="image" src="https://github.com/user-attachments/assets/cffb7bdd-0762-45ad-8785-952613727bac" />
 
