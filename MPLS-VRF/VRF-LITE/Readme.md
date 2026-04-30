@@ -40,6 +40,8 @@ Her bir vrfnin routig table için `` show ip route vrf <vrf-name>`` komutunu kul
 - Hangi interface hangi vrf'ye atanacak ise interface altında ``ip vrf forwarding <vrf-name>`` şeklinde atanır.
 - Eğer interface de ip adresi var ise vrf ataması yapıldıktan sonra ip adresini tekrar yazılmalıdır. Çünkü ip adresi silinecektir.
 - <img width="929" height="66" alt="image" src="https://github.com/user-attachments/assets/600d87ff-a56f-45ec-80de-12975e5c3a41" />
+- R1-R2 arasında her bir vrf için ayrı interface de kullanılabilir. Burada sub-interface tercih ettim.
+- Her vrf içindeki subnetlerin erişimi için statik router kullandım. `` ip route vrf <vrf-name> <network-id> <Mask> <Next-Hop> `` komutu ile statik routing yapılmalıdr.
 
 
 ## Configler Tamamlandıktan sonra Test Aşaması
@@ -59,9 +61,9 @@ Aynı şekilde PC2 de, P3'e ping atabilirken P4'e ping atamamaktadır.
 Customer A ve B aynı prefixleri kullanmasına rağmen birbirlerinden izole bir şekilde uzaktaki site erişim sağlayabilmektedir.
 
 
-Burada bir problem söz konusu ve bu problem ISP tarafındadır. iki müşteri için 2 farklı sub interface yapıldı peki 100 müşteri olsa veya 10000 müşteri olsa ne yapılacak. Bu ölçeklenebilir bir durum değildir. 
+Burada bir problem söz konusu ve bu problem ISP tarafındadır. iki müşteri için 2 farklı sub interface yapıldı veya 2 farklı interface de kullanılabilrdi. Peki 100 müşteri olsa veya 10000 müşteri olsa ne yapılacak. Bu ölçeklenebilir bir durum değildir. 
 
-İşte burada MPLS L3VPN devreye girerek ip forwarding yerine label forwarding ile tek bir hat üzerinden yani sub interface bile yapmadan, tüm prefixlerin birbirine çakışmadan izole bir şekilde taşınmasını sağlayacağız.
+İşte burada MPLS L3VPN devreye girerek ip forwarding yerine label forwarding ile tek bir hat üzerinden yani sub interface bile yapmadan, tüm prefixlerin birbirine çakışmadan izole bir şekilde taşınmasını sağlayacaktır.
 
 
 
