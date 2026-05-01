@@ -87,8 +87,14 @@ Customer-A için MP-BGPden 21 etiketini almıştır. PE2, PE1'e  Customer-A daki
 
 <img width="506" height="155" alt="image" src="https://github.com/user-attachments/assets/5090a137-ec6b-4e73-9d32-baa4e00062f3" />
 
-Bu şekilde farklı müşterilerin farklı sitelardaki aynı prefixlerini tek bir mpls hat üzerinden taşımasını yapmıştır. 
+Bu lab ile aşağıdakiler başarılmıştır:
 
+- Aynı MPLS omurga üzerinden **iki farklı müşterinin (Customer-A / Customer-B) izole taşınması**
+- Müşterilerin **çakışan IP prefixleri** (`172.16.10.0/24`) kullanabilmesi
+- **MP-BGP** ile RD/RT etiketlerinin taşınması
+- **Çift etiket (Outer/Inner)** mekanizmasının Wireshark ile gösterilmesi
+
+Bu yapı, servis sağlayıcıların **ölçeklenebilir ve güvenli VPN hizmeti** sunmasını sağlar.
 
 
 
