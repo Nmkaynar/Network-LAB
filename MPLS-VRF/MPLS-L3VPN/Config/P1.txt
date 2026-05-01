@@ -1,0 +1,26 @@
+P1#(Config)
+
+conf t
+
+interface loopback 0
+ ip address 4.4.4.4 255.255.255.255
+ ip ospf 1 area 0
+ no sh
+
+inter gi 0/0
+ ip address 10.0.10.2 255.255.255.252
+ no sh 
+ mpls ip 
+ ip ospf 1 area 0
+ 
+inter gi 1/0
+ ip address 10.0.11.1 255.255.255.252
+ no sh 
+ mpls ip 
+ ip ospf 1 area 0
+
+
+
+router ospf 1 
+ router-id 4.4.4.4 
+ 
