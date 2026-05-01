@@ -1,0 +1,26 @@
+P2#(Config)
+
+conf t
+
+interface loopback 0
+ ip address 5.5.5.5 255.255.255.255
+ ip ospf 1 area 0
+ no sh
+
+inter gi 0/0
+ ip address 10.0.11.2 255.255.255.252
+ no sh 
+ mpls ip 
+ ip ospf 1 area 0
+ 
+inter gi 1/0
+ ip address 10.0.12.1 255.255.255.252
+ no sh 
+ mpls ip 
+ ip ospf 1 area 0
+
+
+
+router ospf 1 
+ router-id 5.5.5.5
+ 
