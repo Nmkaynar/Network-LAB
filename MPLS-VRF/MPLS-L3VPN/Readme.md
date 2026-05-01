@@ -1,5 +1,6 @@
 ## MPLS-L3VPN
-<img width="1313" height="777" alt="image" src="https://github.com/user-attachments/assets/a5f2cbd0-ab46-4934-8ce4-338bddb26441" />
+<img width="1201" height="780" alt="image" src="https://github.com/user-attachments/assets/fb209ae4-3f62-4b74-8375-059b6d6ff8ad" />
+
 
 Daha önce yaptığımız mpls basic ve vrf-lite teknolojilerini MP-BGP ile birleştrirerek tek bir mpls omurga üzerinden birden fazla müşterinin prefixlerini izole biçimde taşımasını sağlayan bir teknolojidir.
 
@@ -11,7 +12,7 @@ Daha önce yaptığımız mpls basic ve vrf-lite teknolojilerini MP-BGP ile birl
 ## Config 
 ### PE cihazlarda
 - VRF ile her müşterinin ayrı routing tablosu oluşturulur.
-- Prefixlerin başına RD etiket eklenir. Bunun amacı aynı prefix geldiğinde BGP ile yönlendirme yapıldığında benzersiz olmalarını sağlamak
+- Prefixlerin başına RD eklenir. Bunun amacı aynı prefix geldiğinde BGP ile yönlendirme yapıldığında benzersiz olmalarını sağlamak
 - Format genelde ASN:nn şeklinde olur
 - RT etiketi ile rotaların hangi vrf'lere export/import edileceği belli edilir
 
@@ -46,6 +47,9 @@ PC1 den PC2'ye, PC3 den PC4'ün gateway'ine ping atalım.
 PC1 de `ping 172.16.20.10`
 PC3 de `ping 172.16.20.1`
 atalım ki wiresharkta paketleri rahat tespit edebilielim.
+
+PC1 ve PC2 Customer-A içerisinde, PC3 ve PC4 Customer-B içerisinde.
+
 
 PE1 den çıkan hatta wiresharkta yakaladığımız paketler
 
@@ -87,7 +91,15 @@ Customer-A için MP-BGPden 21 etiketini almıştır. PE2, PE1'e  Customer-A daki
 
 <img width="506" height="155" alt="image" src="https://github.com/user-attachments/assets/5090a137-ec6b-4e73-9d32-baa4e00062f3" />
 
-Bu lab ile aşağıdakiler başarılmıştır:
+
+
+PC1 PC5'e ping atabilirken, PC3, PC5'e ping atamamaktadır.
+
+<img width="581" height="188" alt="image" src="https://github.com/user-attachments/assets/0596b299-2626-4296-8df7-81529bdd8773" />
+<img width="365" height="184" alt="image" src="https://github.com/user-attachments/assets/4a3cfa95-73d5-4405-a839-559edf148336" />
+
+
+Bu lab ile;
 
 - Aynı MPLS omurga üzerinden **iki farklı müşterinin (Customer-A / Customer-B) izole taşınması**
 - Müşterilerin **çakışan IP prefixleri** (`172.16.10.0/24`) kullanabilmesi
