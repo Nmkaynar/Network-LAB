@@ -91,7 +91,7 @@ Customer-A için MP-BGPden 21 etiketini almıştır. PE2, PE1'e  Customer-A daki
 
 <img width="506" height="155" alt="image" src="https://github.com/user-attachments/assets/5090a137-ec6b-4e73-9d32-baa4e00062f3" />
 
-
+### İZolasyon kontrolü
 
 PC1 PC5'e ping atabilirken, PC3, PC5'e ping atamamaktadır.
 
