@@ -1,0 +1,23 @@
+CE-B(config)#
+
+conf t
+
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+ no sh
+
+interface GigabitEthernet0/0
+ ip address 192.168.1.254  255.255.255.0
+ no sh
+
+interface GigabitEthernet1/0
+ ip address 172.16.10.1  255.255.255.0
+ no sh
+
+
+ip route 0.0.0.0 0.0.0.0 192.168.1.1
+
+router bgp 65100
+ bgp router-id 2.2.2.2
+ neighbor 192.168.1.1 remote-as 500
+ network 172.16.10.0 mask 255.255.255.0
