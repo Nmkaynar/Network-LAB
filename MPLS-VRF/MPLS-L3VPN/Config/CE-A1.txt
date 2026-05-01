@@ -1,0 +1,29 @@
+CE-A1(config)#
+
+conf t
+
+interface Loopback0
+ ip address 7.7.7.7 255.255.255.255
+ no sh
+
+interface GigabitEthernet0/0
+ ip address 192.168.2.254  255.255.255.0
+ no sh
+
+
+interface GigabitEthernet1/0
+ ip address 172.16.20.1  255.255.255.0
+ no sh
+
+
+ip route 0.0.0.0 0.0.0.0 192.168.2.1
+
+router bgp 65000
+ bgp router-id 7.7.7.7
+ neighbor 192.168.2.1 remote-as 500
+ network 172.16.20.0 mask 255.255.255.0
+
+
+
+
+ 
