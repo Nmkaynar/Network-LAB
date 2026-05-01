@@ -1,0 +1,66 @@
+PE1(config)#
+
+conf t
+
+ip vrf Customer-A
+ rd 65000:100
+ route-target both 100:65000
+
+ip vrf Customer-B
+ rd 65100:200
+ route-target both 200:65100
+ exit
+
+
+
+interface Loopback0
+ ip address 3.3.3.3 255.255.255.255
+ ip ospf 1 area 0
+ no sh
+
+inter gi 0/0
+ ip vrf forwarding Customer-A
+ ip address 192.168.1.1 255.255.255.0
+ no sh
+
+inter gi 1/0
+ ip vrf forwarding Customer-B
+ ip address 192.168.1.1 255.255.255.0
+ no sh
+ 
+
+interface GigabitEthernet2/0
+ ip address 10.0.10.1 255.255.255.252
+ mpls ip
+ ip ospf 1 area 0
+ no sh
+
+
+
+router ospf 1
+ router-id 3.3.3.3
+ exit
+
+
+router bgp 500
+ bgp router-id 3.3.3.3
+ neighbor 6.6.6.6 remote-as 500
+ neighbor 6.6.6.6 update-source loopback0
+ neighbor 6.6.6.6 next-hop-self
+
+address-family vpnv4
+  neighbor 6.6.6.6 activate
+  neighbor 6.6.6.6 send-community both
+
+ address-family ipv4 vrf Customer-A
+  neighbor 192.168.1.254 remote-as 65000
+  neighbor 192.168.1.254 activate 
+  exit
+
+ address-family ipv4 vrf Customer-B
+  neighbor 192.168.1.254 remote-as 65100
+  neighbor 192.168.1.254 activate
+  exit
+
+
+ 
