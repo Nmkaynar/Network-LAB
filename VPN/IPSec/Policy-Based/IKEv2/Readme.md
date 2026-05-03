@@ -42,7 +42,7 @@ crypto ikev2 keyring KR
 ````
 
 
-Burada ikev1 den farklı olarak daha düzenli bir yapı kurgulanmış olur. Ikev1 de bir den fazla şube için PSK tanımlanmış olsaydı şeklinde gözükürdü ve hangisi kime ait belli olmazdı. 
+Burada ikev1 den farklı olarak daha düzenli bir yapı kurgulanmış olur. Ikev1 de bir den fazla şube için PSK tanımlanmış olsaydı şeklinde gözükürdü ve hangisi kime ait belli olmazdı. IKEv2’de keyring yapısı sayesinde her peer için ayrı ve düzenli bir PSK yönetimi sağlanır.
 ````
 crypto isakmp key 7xK9$mPq2vL8nR4tY6wZ address 100.65.2.2
 crypto isakmp key 3jH7&bN5cV9xQ1sD8fG2 address 100.65.3.2
@@ -64,7 +64,7 @@ crypto ikev2 profile IKEV2-PROF
 
  ## Crypto Map
 
-Phase 2 ikev1 ile bire bir aynı confige sahiptir. cyrpto map de ise bir satır daha eklenmiştir
+Phase 2 Transform-set kısmı ikev1 ile bire bir aynı confige sahiptir. cyrpto map de ise bir satır daha eklenmiştir
 ``set ikev2-profile IKEV2-PROF`` Bu satır eklenmez ise IOS varsayılan olarak IKEv1 dener. 
 
 ````
