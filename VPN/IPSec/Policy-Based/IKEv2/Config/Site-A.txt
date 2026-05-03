@@ -1,0 +1,70 @@
+Site-A#(Config)
+conf t
+
+! WAN
+interface g0/0
+ ip address 100.64.1.1 255.255.255.252
+ no shut
+
+! LAN
+interface g1/0
+ ip address 192.168.10.1 255.255.255.0
+ no shut
+
+interface g2/0
+ ip address 192.168.20.1 255.255.255.0
+ no shut
+  
+! Routing
+ip route 0.0.0.0 0.0.0.0 100.64.1.2
+
+
+crypto ikev2 proposal IKEV2-PROP
+ encryption aes-cbc-256
+ integrity sha256
+ group 14
+
+
+crypto ikev2 policy IKEV2-POLICY 
+ proposal IKEV2-PROP
+
+
+crypto ikev2 keyring KR
+ peer SITE-B
+  address 100.65.2.2
+  pre-shared-key CISCO
+
+
+crypto ikev2 profile IKEV2-PROF
+ match identity remote address 100.65.2.2 255.255.255.255
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local KR
+
+
+crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
+ mode tunnel
+
+
+ip access-list extended VPN-TRAFFIC
+ permit ip 192.168.10.0 0.0.0.255 172.16.200.0 0.0.0.255
+
+
+crypto map VPN-MAP 10 ipsec-isakmp
+ set peer 100.65.2.2
+ set transform-set TS
+ set pfs group14
+ set ikev2-profile IKEV2-PROF
+ match address VPN-TRAFFIC
+
+
+interface GigabitEthernet0/0
+ crypto map VPN-MAP
+
+
+ip access-list extended NAT-ACL
+ deny   ip 192.168.10.0 0.0.0.255 172.16.200.0 0.0.0.255
+ permit ip 192.168.10.0 0.0.0.255 any
+ permit ip 192.168.20.0 0.0.0.255 any
+
+ip nat inside source list NAT-ACL interface GigabitEthernet0/0 overload
