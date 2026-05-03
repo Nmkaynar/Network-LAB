@@ -78,8 +78,14 @@ Crypto map, karşı tarafın (peer) IP’sini, verinin nasıl korunacağını (t
  
 Her iki tarafta bu işlem yapıldıktan sonra 192.168.10.0/24 ile 172.16.200.0/24 networkleri birbirlerine aynı LAN'daymış gibi erişim salayabilirler. Ve aralarındaki iletişim şifreli olarak ilerler.
 
-`` set pfs group14`` Bu 
+`` set pfs group14``
+Bu satır PFS'i (Perfect Forward Secrecy) aktif eder. PFS sayesinde her Phase 2 rekey'de 
+yeni ve bağımsız bir Diffie-Hellman değişimi yapılır. Bu sayede uzun ömürlü bir anahtar 
+ileride çalınsa bile, geçmişte üretilmiş Phase 2 anahtarları hesaplanamaz — geçmiş 
+trafik güvende kalır.
 
+Phase 2'nin varsayılan lifetime süresi 3600 saniyedir, yani PFS açıkken saatte bir 
+yeni DH üretilir.
 
 
 Bu bağlantı kurulurken main Phase1 (Main modda)6 paket Phase 2(Quick Modda) 3 paket ile toplam  9 pakette yapılır
@@ -88,8 +94,20 @@ Bu bağlantı kurulurken main Phase1 (Main modda)6 paket Phase 2(Quick Modda) 3 
 
 
 
+## Show çıktıları
+``sh crypto isakmp sa`` komutu ile phase 1'in çalışıp çalışmadığı kontrol edilir.
+
+<img width="606" height="151" alt="image" src="https://github.com/user-attachments/assets/f2f4b3f7-1775-4c22-9bf3-5518140033ad" />
 
 
+``sh crypto ipsec sa  `` komutu ile phase 2 de ncrypt/decrypt sayaçlarının artıp artmadığı görülür.
+
+
+<img width="752" height="637" alt="image" src="https://github.com/user-attachments/assets/300b3bd3-59c8-4f87-ac20-9231a5881591" />
+
+PC1'den PC2'ye ping attığımda bu değerlerin arttığını ve tünel kurulmamış ise inboud esp sas ve bound esp sas'un da kurulduğunu ve status kısmında active görürüz.
+
+<img width="751" height="950" alt="image" src="https://github.com/user-attachments/assets/e8bd7d4c-0e0d-4af2-8da2-655d3eb9e4c0" />
 
 
 
