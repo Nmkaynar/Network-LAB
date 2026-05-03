@@ -27,7 +27,7 @@ crypto ikev2 policy IKEV2-POLICY
  proposal IKEV2-PROP
 ````
 
-Router üzerinde eğer birden fazla wan ip adresi mevcut ise hangisinde geçerli olduğunu ``match address local <IP-Address>  şeklide belirtmeliyiz. 
+Router üzerinde eğer birden fazla wan ip adresi mevcut ise hangisinde geçerli olduğunu ``match address local <IP-Address>``  şeklide belirtmeliyiz. 
 
 
 ## Keyring (Pre-Shared Key Saklama Alanı)
@@ -64,7 +64,7 @@ crypto ikev2 profile IKEV2-PROF
 
  ## Crypto Map
 
-Phase 2 Transform-set kısmı ikev1 ile bire bir aynı confige sahiptir. cyrpto map de ise bir satır daha eklenmiştir
+Phase 2 Transform-set ve ACL kısmı  kikev1 ile bire bir aynı confige sahiptir. cyrpto map de ise bir satır daha eklenmiştir
 ``set ikev2-profile IKEV2-PROF`` Bu satır eklenmez ise IOS varsayılan olarak IKEv1 dener. 
 
 ````
@@ -76,15 +76,15 @@ crypto map VPN-MAP 10 ipsec-isakmp
  match address VPN-TRAFFIC
 ````
 
-
+**UYARI:** Eğer NAT var ise VPN trafiğini ikev1 de olduğu gibi NAT'tan muaf tutulmalı. 
 
 Her şey tamamlandıktan sonra PC1 den PC2 ye ( 192.168.10.10 ->172.16.200.10) önce IKev2 Phase1 + Phase 2 kurulumu yapılır. IKEv1 9 pakette yaparken IKEv2 4 pakette tamamlar.
 
 <img width="1072" height="216" alt="image" src="https://github.com/user-attachments/assets/b0937130-2ece-432c-ae85-e417869a6b1a" />
 
 ## Kontrol
-show crypto ikev2 sa çıktısı ile IPSec Kurulumunu görebiliriz.
+show crypto ikev2 sa çıktısı ile IPSec Kurulumunu görebiliriz. Status ready ise IKE SA başarılı kurulmuştur.
 <img width="924" height="195" alt="image" src="https://github.com/user-attachments/assets/97cc2c00-e338-419a-a23e-a4130c064f85" />
-show crypto ipsec sa çıktısı
+show crypto ipsec sa çıktısı. Encrypt/decrypt sayaçlarının ikisi de artıyorsa tünel sağlıklı, sadece encrypt artıyorsa karşı taraftan dönüş yok demektir.
 <img width="826" height="962" alt="image" src="https://github.com/user-attachments/assets/3740b81e-d10e-4f6b-9f89-60fb3a7188eb" />
 
