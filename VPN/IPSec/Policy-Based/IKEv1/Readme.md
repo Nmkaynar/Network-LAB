@@ -20,13 +20,12 @@ crypto isakmp policy 10
  exit
 crypto isakmp key CISCO address 100.65.2.2
 ````  
-Burada DH ile (group 14) ortak bir secret üretildikten sonra ike mesajlar aes256 ile şifrelenir ve bütünlüğünü sha256 ile kontrol edilir. Bütünlüğü uymayan ike mesajları drop edilir.
-İlk mesajlar şifreli değildir.
+Phase 1'in ilk mesajları (parametre müzakeresi ve DH değişiminin kendisi) şifresizdir. DH tamamlandıktan sonra ortak secret üretilir ve bundan sonraki Phase 1 mesajları (kimlik doğrulama vb.) AES-256 ile şifrelenir, SHA-256 ile bütünlüğü doğrulanır.
 
 
 ## Phase 2 
 
-Burada IPSec SA oluşturulur ve kullancı trafiği  Aes ile şifrlenerek ESP ile taşındığı yer. Verinin bütünlüğünü ise sha ile doğrular 
+Burada IPSec SA oluşturulur ve kullancı trafiği  Aes ile şifrlenerek ESP ile kapsüllenerek taşındığı yer. Verinin bütünlüğünü ise sha ile doğrular 
 
 ### Config 
 ````
@@ -88,8 +87,8 @@ Phase 2'nin varsayılan lifetime süresi 3600 saniyedir, yani PFS açıkken saat
 yeni DH üretilir.
 
 
-Bu bağlantı kurulurken main Phase1 (Main modda)6 paket Phase 2(Quick Modda) 3 paket ile toplam  9 pakette yapılır
- 
+Bu bağlantı kurulurken  Phase1 (Main modda)6 paket Phase 2(Quick Modda) 3 paket ile toplam  9 pakette kurulum tamamlanır.
+
 <img width="986" height="149" alt="image" src="https://github.com/user-attachments/assets/f593595f-3f58-4b6e-bac7-0f1f9dbaf23f" />
 
 
@@ -105,11 +104,11 @@ Bu bağlantı kurulurken main Phase1 (Main modda)6 paket Phase 2(Quick Modda) 3 
 
 <img width="752" height="637" alt="image" src="https://github.com/user-attachments/assets/300b3bd3-59c8-4f87-ac20-9231a5881591" />
 
-PC1'den PC2'ye ping attığımda bu değerlerin arttığını ve tünel kurulmamış ise inboud esp sas ve bound esp sas'un da kurulduğunu ve status kısmında active görürüz.
+PC1'den PC2'ye ping attığımda bu değerlerin arttığını ve tünel henüz kurulmamış ise ilk trafikle birlikte inboud esp sas ve outbound esp sas'un da kurulduğunu ve status kısmında active görürüz.
 
 <img width="751" height="950" alt="image" src="https://github.com/user-attachments/assets/e8bd7d4c-0e0d-4af2-8da2-655d3eb9e4c0" />
 
-
+NOT: Bu lab IKEv1 ile yapılmıştır. Modern kurulumlarda IKEv2 tercih edilir.
 
 
 
