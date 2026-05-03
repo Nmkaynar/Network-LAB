@@ -1,4 +1,4 @@
-<img width="1072" height="600" alt="image" src="https://github.com/user-attachments/assets/c35f04a3-9a70-41dd-bc5a-85fc459757e7" />## IPsec nedir, ne işe yarar?
+## IPsec nedir, ne işe yarar?
 İki ofisi internet üzerinden kendi LAN'larını tek bir LAN'daymış gibi connect etmek için kullanılan bir protokoldür.
 <img width="1072" height="600" alt="image" src="https://github.com/user-attachments/assets/a1656353-0fe1-4524-9e6f-2d7c3d063b56" />
 
