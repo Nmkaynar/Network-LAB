@@ -42,7 +42,7 @@ crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
 crypto map VPN-MAP 10 ipsec-isakmp
  set peer 100.64.1.1
  set transform-set TS
- set pfs group 14
+ set pfs group14
  match address VPN-TRAFFIC
 
 ! Apply
