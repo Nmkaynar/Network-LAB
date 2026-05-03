@@ -23,7 +23,7 @@ crypto isakmp policy 10
  encr aes 256
  hash sha256
  authentication pre-share
- group14
+ group 14
  lifetime 86400
 
 crypto isakmp key cisco address 100.65.2.2
@@ -40,7 +40,7 @@ crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
 crypto map VPN-MAP 10 ipsec-isakmp
  set peer 100.65.2.2
  set transform-set TS
- set pfs group 14
+ set pfs group14
  match address VPN-TRAFFIC
 
 ! Apply
