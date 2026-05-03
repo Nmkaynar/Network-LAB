@@ -23,7 +23,7 @@ crypto isakmp policy 10
  encr aes 256
  hash sha256
  authentication pre-share
- group 14
+ group14
  lifetime 86400
 
 crypto isakmp key cisco address 100.65.2.2
