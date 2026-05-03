@@ -12,7 +12,7 @@ Burada yapılan işlem her iki sitedaki çıkış cihazların(bu labda routerlar
 ### Config
 ````  
 crypto isakmp policy 10
- encr aes
+ encr aes 256
  hash sha256
  authentication pre-share
  group 14
@@ -20,7 +20,7 @@ crypto isakmp policy 10
  exit
 crypto isakmp key CISCO address 100.65.2.2
 ````  
-Burada DH ile (group 14) ortak bir secret üretildikten sonra ike mesajlar aes ile şifrelenir ve bütünlüğünü sha256 ile kontrol edilir. Bütünlüğü uymayan ike mesajları drop edilir.
+Burada DH ile (group 14) ortak bir secret üretildikten sonra ike mesajlar aes(varsayılan 128) ile şifrelenir ve bütünlüğünü sha256 ile kontrol edilir. Bütünlüğü uymayan ike mesajları drop edilir.
 İlk mesajlar şifreli değildir.
 
 
@@ -30,16 +30,18 @@ Burada IPSec SA oluşturulur ve kullancı trafiği  Aes ile şifrlenerek ESP ile
 
 ### Config 
 ````
-crypto ipsec transform-set TS esp-aes esp-sha256-hmac
+crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
  mode tunnel
 ````
 
-Burada TS adında tranform-set oluşturuyoruz ve esp protokolü kullanarak veriyi aes ile şifrele ve sha ile bütünlüğünü doğrula demiş oluyoruz.
+Burada TS adında tranform-set oluşturuyoruz ve esp protokolü kullanarak veriyi aes(varsayılan 128) ile şifrele ve sha ile bütünlüğünü doğrula demiş oluyoruz.
 
 PC1'den PC3'e ping attığımızda ICMP yerine ESP olara görülecektir.ESP içnde ICMP Payloadu bulunur
 
 <img width="962" height="303" alt="image" src="https://github.com/user-attachments/assets/ddfc7388-cec1-4058-a684-2d7c76c6fd61" />
-## Vpn - Trafiği
+
+
+## Interesting Traffic
 
 Burada extend ACL ile hangi networklerin iletişim kuracağını belirliyoruz
 
@@ -66,6 +68,7 @@ Burada artık yaptığımız aşamaları birleştiriyoruz
 crypto map VPN-MAP 10 ipsec-isakmp
  set peer 100.65.2.2
  set transform-set TS
+ set pfs group14
  match address VPN-TRAFFIC
 interface g0/0
  crypto map VPN-MAP
@@ -74,6 +77,8 @@ interface g0/0
 Crypto map, karşı tarafın (peer) IP’sini, verinin nasıl korunacağını (transform-set) ve hangi trafiğin VPN’e gireceğini (ACL) belirleyerek bu politikayı interface’e uygular.
  
 Her iki tarafta bu işlem yapıldıktan sonra 192.168.10.0/24 ile 172.16.200.0/24 networkleri birbirlerine aynı LAN'daymış gibi erişim salayabilirler. Ve aralarındaki iletişim şifreli olarak ilerler.
+
+`` set pfs group14`` Bu 
 
 
 
