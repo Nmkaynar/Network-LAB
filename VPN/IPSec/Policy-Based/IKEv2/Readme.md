@@ -21,7 +21,7 @@ crypto ikev2 proposal IKEV2-PROP
 
 
 ### Config
-`Policy hangi propolsalların router üzerinde hangi wan adresete geçerli olduğunu belirler.  
+Policy hangi propolsalların router üzerinde hangi wan adresete geçerli olduğunu belirler.  
 ````
 crypto ikev2 policy IKEV2-POLICY 
  proposal IKEV2-PROP
@@ -64,7 +64,7 @@ crypto ikev2 profile IKEV2-PROF
 
  ## Crypto Map
 
-Phase 2 Transform-set ve ACL kısmı  kikev1 ile bire bir aynı confige sahiptir. cyrpto map de ise bir satır daha eklenmiştir
+Phase 2 Transform-set ve ACL kısmı  ikev1 ile bire bir aynı confige sahiptir. cyrpto map de ise bir satır daha eklenmiştir
 ``set ikev2-profile IKEV2-PROF`` Bu satır eklenmez ise IOS varsayılan olarak IKEv1 dener. 
 
 ````
