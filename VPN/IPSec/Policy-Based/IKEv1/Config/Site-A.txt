@@ -16,7 +16,7 @@ interface g2/0
  no shut
   
 ! Routing
-ip route 0.0.0.0 0.0.0.0.0  100.64.1.2
+ip route 0.0.0.0 0.0.0.0 100.64.1.2
 
 ! Phase 1
 crypto isakmp policy 10
