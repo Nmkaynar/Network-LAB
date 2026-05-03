@@ -7,7 +7,7 @@ IPSec iki aşamadan kurulur. Phase 1 ve Phase2.
 
 ## Phase 1 
 
-Burada yapılan işlem her iki sitedaki çıkış cihazların(bu labda routerların) birbirleri ile bir tünel kurulmasını sağlayan aşamadır.
+Burada yapılan işlem her iki sitedaki çıkış cihazların(bu labda routerların) birbirleri arasında güvenli bir kontrol kanalı (IKE SA) oluşturur.
 
 ### Config
 ````  
@@ -20,15 +20,13 @@ crypto isakmp policy 10
  exit
 crypto isakmp key CISCO address 100.65.2.2
 ````  
-Burada DH ile (group 14) ortak bir secret üretilir sonra ike mesajlar aes ile şifrelenir ve bütünlüğünü sha256 ile kontrol edilir. Bütünlüğü uymayan ike mesajları drop edilir.
+Burada DH ile (group 14) ortak bir secret üretildikten sonra ike mesajlar aes ile şifrelenir ve bütünlüğünü sha256 ile kontrol edilir. Bütünlüğü uymayan ike mesajları drop edilir.
+İlk mesajlar şifreli değildir.
 
-Bu bağlantı kurulurken main modda 9 paket ile aggresive modda 3 paket ile yapılır
-Main modda :
-<img width="986" height="149" alt="image" src="https://github.com/user-attachments/assets/f593595f-3f58-4b6e-bac7-0f1f9dbaf23f" />
 
 ## Phase 2 
 
-Burada verinin şifrlenerek taşındığı yer. 
+Burada IPSec SA oluşturulur ve kullancı trafiği  Aes ile şifrlenerek ESP ile taşındığı yer. Verinin bütünlüğünü ise sha ile doğrular 
 
 ### Config 
 ````
@@ -38,8 +36,7 @@ crypto ipsec transform-set TS esp-aes esp-sha256-hmac
 
 Burada TS adında tranform-set oluşturuyoruz ve esp protokolü kullanarak veriyi aes ile şifrele ve sha ile bütünlüğünü doğrula demiş oluyoruz.
 
-PC1'den PC3'e ping attığımızda ICMP yerine ESP olara görülecektir.
-
+PC1'den PC3'e ping attığımızda ICMP yerine ESP olara görülecektir.ESP içnde ICMP Payloadu bulunur
 
 <img width="962" height="303" alt="image" src="https://github.com/user-attachments/assets/ddfc7388-cec1-4058-a684-2d7c76c6fd61" />
 ## Vpn - Trafiği
@@ -75,14 +72,14 @@ interface g0/0
 ````
 
 Crypto map, karşı tarafın (peer) IP’sini, verinin nasıl korunacağını (transform-set) ve hangi trafiğin VPN’e gireceğini (ACL) belirleyerek bu politikayı interface’e uygular.
-
-
-
+ 
 Her iki tarafta bu işlem yapıldıktan sonra 192.168.10.0/24 ile 172.16.200.0/24 networkleri birbirlerine aynı LAN'daymış gibi erişim salayabilirler. Ve aralarındaki iletişim şifreli olarak ilerler.
 
 
 
-
+Bu bağlantı kurulurken main Phase1 (Main modda)6 paket Phase 2(Quick Modda) 3 paket ile toplam  9 pakette yapılır
+ 
+<img width="986" height="149" alt="image" src="https://github.com/user-attachments/assets/f593595f-3f58-4b6e-bac7-0f1f9dbaf23f" />
 
 
 
