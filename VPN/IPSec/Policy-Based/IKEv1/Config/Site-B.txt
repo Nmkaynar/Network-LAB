@@ -1,0 +1,53 @@
+Site-B#(Config)
+conf t
+ 
+
+! WAN
+interface g0/0
+ ip address 100.65.2.2 255.255.255.252
+ no shut
+
+! LAN
+interface g1/0
+ ip address 172.16.200.1 255.255.255.0
+ no shut
+
+interface g2/0
+ ip address 172.16.150.1 255.255.255.0
+ no shut
+
+
+! Routing
+ip route 0.0.0.0 0.0.0.0 100.65.2.1
+
+! Phase 1
+crypto isakmp policy 10
+ encr aes 256
+ hash sha256
+ authentication pre-share
+ group 14
+ lifetime 86400
+
+crypto isakmp key cisco address 100.64.1.1
+
+! Interesting Traffic
+ip access-list extended VPN-TRAFFIC
+ permit ip 172.16.200.0 0.0.0.255 192.168.10.0 0.0.0.255
+
+! Phase 2
+crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
+ mode tunnel
+
+! Crypto Map
+crypto map VPN-MAP 10 ipsec-isakmp
+ set peer 100.64.1.1
+ set transform-set TS
+ set pfs group 14
+ match address VPN-TRAFFIC
+
+! Apply
+interface g0/0
+ crypto map VPN-MAP
+
+end
+wr
