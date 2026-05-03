@@ -1,4 +1,6 @@
 ## IPSec IKEv2 
+<img width="1072" height="600" alt="image" src="https://github.com/user-attachments/assets/11761539-157c-4ceb-abf7-577771c822d9" />
+
 IKEv2’de Phase 1 ve Phase 2 kavramı mantıksal olarak devam eder ama yapı daha modülerdir.
 - Proposal → Şifreleme ve hash algoritmaları
 - Policy → Proposal’ın kullanımı
