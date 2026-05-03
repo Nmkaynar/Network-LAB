@@ -20,7 +20,7 @@ crypto isakmp policy 10
  exit
 crypto isakmp key CISCO address 100.65.2.2
 ````  
-Burada DH ile (group 14) ortak bir secret üretildikten sonra ike mesajlar aes(varsayılan 128) ile şifrelenir ve bütünlüğünü sha256 ile kontrol edilir. Bütünlüğü uymayan ike mesajları drop edilir.
+Burada DH ile (group 14) ortak bir secret üretildikten sonra ike mesajlar aes256 ile şifrelenir ve bütünlüğünü sha256 ile kontrol edilir. Bütünlüğü uymayan ike mesajları drop edilir.
 İlk mesajlar şifreli değildir.
 
 
@@ -34,7 +34,7 @@ crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
  mode tunnel
 ````
 
-Burada TS adında tranform-set oluşturuyoruz ve esp protokolü kullanarak veriyi aes(varsayılan 128) ile şifrele ve sha ile bütünlüğünü doğrula demiş oluyoruz.
+Burada TS adında tranform-set oluşturuyoruz ve esp protokolü kullanarak veriyi aes 256 ile şifrele ve sha ile bütünlüğünü doğrula demiş oluyoruz.
 
 PC1'den PC3'e ping attığımızda ICMP yerine ESP olara görülecektir.ESP içnde ICMP Payloadu bulunur
 
