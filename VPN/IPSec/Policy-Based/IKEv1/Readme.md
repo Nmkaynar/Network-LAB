@@ -20,7 +20,6 @@ crypto isakmp policy 10
  exit
 crypto isakmp key CISCO address 100.65.2.2
 ````  
-Phase 1'in ilk mesajları (parametre müzakeresi ve DH değişiminin kendisi) şifresizdir. DH tamamlandıktan sonra ortak secret üretilir ve bundan sonraki Phase 1 mesajları (kimlik doğrulama vb.) AES-256 ile şifrelenir, SHA-256 ile bütünlüğü doğrulanır.
 
 
 ## Phase 2 
