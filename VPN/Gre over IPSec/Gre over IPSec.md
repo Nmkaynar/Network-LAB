@@ -1,6 +1,9 @@
 ## Gre over IPSec
 
 Amaç iki uzak şube arasında trafiği aynı LAN'daymış gibi güvenli bir şekilde taşınmasını sağlamak.
+
+<img width="706" height="627" alt="image" src="https://github.com/user-attachments/assets/f4af87c7-3cf7-4ae1-bea6-f48893a03a2a" />
+
 ## Gre 
 Cisco tarafından geliştirilen bir tünneling protokolüdür. IP protokol 47 dir.
 ### Özellikler
