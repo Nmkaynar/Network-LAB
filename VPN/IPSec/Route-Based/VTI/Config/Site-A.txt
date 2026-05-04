@@ -1,0 +1,73 @@
+Site-A#(Config)
+
+en
+conf t
+
+
+! WAN
+interface g1
+ ip address 1.1.1.1 255.255.255.0
+ no shut
+
+! LAN
+interface g2
+ ip address 192.168.10.1 255.255.255.0
+ no shut
+
+ 
+! Routing
+ip route 0.0.0.0 0.0.0.0 1.1.1.2
+
+
+
+crypto ikev2 proposal IKEV2-PROP
+ encryption aes-cbc-256
+ integrity sha256
+ group 14
+
+
+crypto ikev2 policy IKEV2-POL
+ proposal IKEV2-PROP
+
+
+crypto ikev2 keyring KR
+ peer SITE-B
+  address 2.2.2.2
+  pre-shared-key CISCO
+
+
+crypto ikev2 profile IKEV2-PROF
+ match identity remote address 2.2.2.2 255.255.255.255
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local KR
+
+
+crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
+ mode tunnel
+
+! Buradan sonrası policy based ipsecten farklı olan kısım
+
+crypto ipsec profile IPSEC-PROF
+ set transform-set TS
+ set pfs group14
+ set ikev2-profile IKEV2-PROF
+
+
+interface Tunnel0
+ ip address 10.0.0.1 255.255.255.0
+ tunnel source GigabitEthernet0/0
+ tunnel destination 2.2.2.2
+ tunnel mode ipsec ipv4
+ tunnel protection ipsec profile IPSEC-PROF
+
+ip route 172.16.10.0 255.255.255.0 Tunnel0
+
+
+
+
+
+
+
+
+
