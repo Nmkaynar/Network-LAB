@@ -15,7 +15,7 @@ interface g2
 
  
 ! Routing
-ip route 0.0.0.0 0.0.0.0 2.2.2.2
+ip route 0.0.0.0 0.0.0.0 2.2.2.1
 
  
 
