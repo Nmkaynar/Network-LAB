@@ -1,0 +1,54 @@
+Site-A#(Config)
+
+conf t
+
+interface gi0/0
+ ip address 1.1.1.1 255.255.255.0
+ no shut
+
+interface gi1/0
+ ip address 192.168.10.1 255.255.255.0
+ no shut
+
+ip route 0.0.0.0 0.0.0.0 1.1.1.2
+
+
+crypto isakmp policy 10
+ encryption aes 256
+ hash sha
+ authentication pre-share
+ group 14
+ lifetime 86400
+
+crypto isakmp key cisco address 2.2.2.2
+
+ 
+crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
+ mode transport 
+
+crypto ipsec profile IPSEC-PROF
+ set transform-set TS
+
+interface Tunnel0
+ ip address 10.0.0.1 255.255.255.0
+ tunnel source 1.1.1.1
+ tunnel destination 2.2.2.2
+ tunnel mode gre ip
+ tunnel protection ipsec profile IPSEC-PROF
+
+router ospf 1 
+ router-id 1.1.1.1
+ network 10.0.0.0 0.0.0.255 area 0
+ network 192.168.10.0 0.0.0.255 area 0
+ passive-interface gi1/0
+
+ 
+
+
+
+
+
+
+
+
+
