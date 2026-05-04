@@ -41,16 +41,19 @@ interface Tunnel0
 
 ## Routing
 
-``ip route 172.16.10.0 255.255.255.0 Tunnel0`` ile  VPN trafiğini tünnelden geçmesini sağlamış oluyoruz.
+``ip route 172.16.10.0 255.255.255.0 10.0.0.2`` ile  VPN trafiğini tünnelden geçmesini sağlamış oluyoruz.
 
 
 ## Kontrol
 
-show interface Tunnel0
+show crypto ikev2 sa
+
+Çıktıda status ready olmalı.
 <img width="867" height="174" alt="image" src="https://github.com/user-attachments/assets/266c6946-7bbe-4873-b509-393f88c06f8e" />
 
 
 show crypto ikev2 sa
+
 
 <img width="905" height="959" alt="image" src="https://github.com/user-attachments/assets/f5401a34-aee3-4ca9-be46-0196348156f6" />
 
