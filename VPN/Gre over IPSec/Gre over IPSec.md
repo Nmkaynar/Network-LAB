@@ -62,4 +62,6 @@ tunnel protection ipsec profile IPSEC-PROF
 Config uygulandıktan sonra tünel trafiği artık şifreli olmuş olacak.
 <img width="864" height="90" alt="image" src="https://github.com/user-attachments/assets/c3d171f7-8b17-48e9-bb0e-4a7c482c3445" />
 
-
+``crypto ipsec transform-set TS esp-aes 256 esp-sha256-hmac
+ mode transport ``
+ Burada tunnel mode yerine transport kullanılmasının sebebi GRE encapsulation yapıldıktan sonra IPsec ile şifrelenir. Eğer tunnel mode kullanılsaydı GRE tekrar encapsulation olurdu ve overhead artardı.
