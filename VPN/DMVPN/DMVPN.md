@@ -118,7 +118,8 @@ router ospf 1
  passive-interface gi 1/0
 
 interface tunnel 0
-  ip ospf network broadcast
+ ip ospf network broadcast
+ ip ospf priority 0
 ```
 
 ### Spoke-B
@@ -132,6 +133,7 @@ router ospf 1
 
 interface tunnel 0
  ip ospf network broadcast
+ ip ospf priority 0
 ```
 
 ## Ping Testi
