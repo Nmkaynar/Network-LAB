@@ -78,7 +78,7 @@ interface Tunnel0
 
 ``ip nhrp nhs 10.0.0.1``  Merkez ofisin(Hub) tünel ip adresidir. Burada nhs next hop server anlamına gelir. Yani spoke'un kayıt olacağı sunucu, diğer spokeları sorgulayacağı kaynak ve spoke'un routing komşuluğu kuracağı cihaz.
 
-`` ip nhrp map 10.0.0.1 100.0.11.1`` , `` ip nhrp map multicast 100.0.11.1`` ve  ``ip nhrp nhs 10.0.0.1`` satırlarını tek bir satırda ``ip nhrp nhs 10.0.0.1 nbma 100.1.1.1 multicast`` bu şekilde yazılabilir.
+`` ip nhrp map 10.0.0.1 100.0.11.1`` , `` ip nhrp map multicast 100.0.11.1`` ve  ``ip nhrp nhs 10.0.0.1`` satırlarını tek bir satırda ``ip nhrp nhs 10.0.0.1 nbma 100.0.11.1 multicast`` bu şekilde yazılabilir.
 
 `` ip nhrp shortcut `` Bu satır ile şubeler doğrudan kendi arasında tünel açarak konuşabilmektedir. Yani hub, iki şubeye birbiri ile iletişime girmek için kestirme yolu göstermektedir.Bu satır sadece Spoke'lara yazılmaktadır.
 
