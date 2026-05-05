@@ -27,12 +27,12 @@ interface Tunnel0
  tunnel source Ethernet0/0
  ip mtu 1400
  ip tcp adjust-mss 1360
- no ip redirect
+ no ip redirects
  
  ip nhrp authentication cisco
  ip nhrp network-id 1
  ip nhrp map multicast dynamic
- ip nhrp redirects
+ ip nhrp redirect
 
 
 ````
