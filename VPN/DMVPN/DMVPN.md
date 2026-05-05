@@ -7,7 +7,7 @@ Bir firmanın birden fazla şubesi var ise klasik vpn ile ayrı ayrı site to si
 
 Bu sebeten ötürü  DMVPN bu sorunu ortadan kaldırır. 
 
-DMVPN de üç temel bileşen bulunmaktadır.
+DMVPN de iki temel bileşen bulunmaktadır.
 
 ## mGRE (Multipoint Gre): 
 Tek bir tünel arayüzü üzerinden birden fazla noktaya bağlantı. Klasik GRE'de her hedef için ayrı tünel gerekirken, mGRE de tek arayüzden bir çok şubeyi konuşturur.
@@ -94,7 +94,7 @@ Hub tarafında nhrp spokeları kaydetti. Ancak Lan tarafı hala iletişim kurama
 
 ## OSPF kullanımı
 
-OSPF yapılandırırken tünel interface altında network type'ı broadcast yapmalıyız.
+OSPF yapılandırırken tünel interface altında network type'ı broadcast yapmalıyız. Hub her daim DR olması için spokeları priority'sini 0 yapmalıyız.
 
 ### Hub 
 ```
