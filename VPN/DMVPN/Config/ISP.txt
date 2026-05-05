@@ -1,0 +1,16 @@
+ISP#(Config)
+conf t 
+
+interface gi0/0
+ ip address 100.0.11.2 255.255.255.252
+ no shut
+
+interface gi1/0
+ ip address 100.0.12.2 255.255.255.252
+ no shut
+
+interface gi2/0
+ ip address 100.0.13.2 255.255.255.252
+ no shut
+
+
