@@ -1,0 +1,72 @@
+Spoke-A#(Config)
+
+conf t
+
+interface gi0/0
+ ip address 100.0.12.1 255.255.255.252
+ no shut
+
+interface gi1/0
+ ip address 172.16.10.1 255.255.255.0
+ no shut
+
+ip route 0.0.0.0 0.0.0.0 100.0.12.2
+
+
+interface Tunnel0
+ ip address 10.0.0.2 255.255.255.0
+ tunnel source GigabitEthernet0/0
+ tunnel mode gre multipoint
+ ip mtu 1400
+ ip tcp adjust-mss 1360
+ no ip redirects
+
+
+ ip nhrp network-id 1
+ ip nhrp authentication cisco
+ ip nhrp map 10.0.0.1 100.0.11.1
+ ip nhrp map multicast 100.0.11.1
+ ip nhrp nhs 10.0.0.1
+ ip nhrp shortcut    
+ 
+ ip ospf network broadcast
+
+
+router ospf 1 
+ router-id 2.2.2.2
+ network 10.0.0.2 0.0.0.0 area 0
+ network 172.16.10.1 0.0.0.0 area 0
+ passive-interface gi 1/0
+
+crypto ikev2 keyring DMVPN-KEYRING
+ peer ANY
+  address 0.0.0.0 0.0.0.0
+  pre-shared-key cisco
+
+crypto ikev2 profile DMVPN-IKEV2-PROFILE
+ match identity remote address 0.0.0.0
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local DMVPN-KEYRING
+
+crypto ipsec transform-set DMVPN-TS esp-aes 256 esp-sha-hmac
+ mode transport
+
+crypto ipsec profile DMVPN-IPSEC-PROFILE
+ set transform-set DMVPN-TS
+ set ikev2-profile DMVPN-IKEV2-PROFILE
+
+interface Tunnel0
+tunnel protection ipsec profile DMVPN-IPSEC-PROFILE
+
+
+
+ 
+
+
+
+
+
+
+
+
