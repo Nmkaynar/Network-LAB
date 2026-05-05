@@ -102,6 +102,7 @@ router ospf 1
  network 10.0.0.1 0.0.0.0 area 0
  network 192.168.10.1 0.0.0.0 area 0
  passive-interface gi 1/0
+
 interface tunnel 0
  ip ospf network broadcast
 
@@ -128,6 +129,7 @@ router ospf 1
  network 10.0.0.3 0.0.0.0 area 0
  network 10.10.10.1 0.0.0.0 area 0
  passive-interface gi 1/0
+
 interface tunnel 0
  ip ospf network broadcast
 ```
@@ -170,7 +172,7 @@ crypto ipsec profile DMVPN-IPSEC-PROFILE
  set ikev2-profile DMVPN-IKEV2-PROFILE
 
 interface Tunnel0
-tunnel protection ipsec profile DMVPN-IPSEC-PROFILE
+ tunnel protection ipsec profile DMVPN-IPSEC-PROFILE
 ````
 
 Yapılandırma tamamlandıktan paketler şifrelenerek gönderilmektedir.
