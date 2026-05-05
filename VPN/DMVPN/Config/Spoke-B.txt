@@ -29,6 +29,7 @@ interface Tunnel0
  ip nhrp shortcut   
  
  ip ospf network broadcast
+ ip ospf priority 0
 
 router ospf 1 
  router-id 3.3.3.3
