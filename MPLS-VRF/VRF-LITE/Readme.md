@@ -20,10 +20,10 @@ Bir router'da VRF tanımlanmadığında tüm interface'ler ve rotalar global rou
 
 
 Normal şartlarda aynı prefixi router üzerinde iki farklı interface atayamaszsınız.
-<img width="528" height="101" alt="image" src="https://github.com/user-attachments/assets/899dd65f-6278-4959-a51e-15d7d6d6a588" />
+<img width="528" height="101" alt="image" src="https://github.com/user-attachments/assets/899dd65f-6278-4959-a51e-15d7d6d6a588" /><br>
 
-VRF ile router içinde sanal routerlar oluşturulduğundan bu interfaceler birbirlerinden bağımsız hareket ederler. Ve aynı gateway ip adresini farklı interfacelere atayabilirsiniz.
-<img width="737" height="245" alt="image" src="https://github.com/user-attachments/assets/78e8b01e-4ce0-4288-9c36-22bd6537901a" />
+VRF ile router içinde sanal routerlar oluşturulduğundan bu interfaceler birbirlerinden bağımsız hareket ederler. Ve aynı gateway ip adresini farklı interfacelere atayabilirsiniz.<br>
+<img width="737" height="245" alt="image" src="https://github.com/user-attachments/assets/78e8b01e-4ce0-4288-9c36-22bd6537901a" /><br>
 
 interfaceler vrf'lere atandığında bu interfaceleri global routing table göremezsiniz.
 <img width="759" height="246" alt="image" src="https://github.com/user-attachments/assets/4107b91c-4c30-499c-9c14-a9b1e96a88b8" />
@@ -51,10 +51,10 @@ R1 Router'ında Customer-A vrf si içinde bulundan 172.16.10.20 cihazına ping a
 
 PC1 P4'e ping atabilirken PC3'e ping atamamaktadır.
 
-<img width="621" height="331" alt="image" src="https://github.com/user-attachments/assets/f3845768-52b8-4225-b89e-59ddad82a77a" />
-Aynı şekilde PC2 de, P3'e ping atabilirken P4'e ping atamamaktadır.
+<img width="621" height="331" alt="image" src="https://github.com/user-attachments/assets/f3845768-52b8-4225-b89e-59ddad82a77a" /><br>
+Aynı şekilde PC2 de, P3'e ping atabilirken P4'e ping atamamaktadır.<br>
 
-<img width="554" height="327" alt="image" src="https://github.com/user-attachments/assets/52a50a4e-e440-439f-9215-10b0dcdda982" />
+<img width="554" height="327" alt="image" src="https://github.com/user-attachments/assets/52a50a4e-e440-439f-9215-10b0dcdda982" /><br>
 
 
 
