@@ -85,8 +85,8 @@ Her şey tamamlandıktan sonra PC1 den PC2 ye ( 192.168.10.10 ->172.16.200.10) �
 <img width="1072" height="216" alt="image" src="https://github.com/user-attachments/assets/b0937130-2ece-432c-ae85-e417869a6b1a" />
 
 ## Kontrol
-show crypto ikev2 sa çıktısı ile IPSec Kurulumunu görebiliriz. Status ready ise IKE SA başarılı kurulmuştur.
-<img width="924" height="195" alt="image" src="https://github.com/user-attachments/assets/97cc2c00-e338-419a-a23e-a4130c064f85" />
-show crypto ipsec sa çıktısı. Encrypt/decrypt sayaçlarının ikisi de artıyorsa tünel sağlıklı, sadece encrypt artıyorsa karşı taraftan dönüş yok demektir.
-<img width="826" height="962" alt="image" src="https://github.com/user-attachments/assets/3740b81e-d10e-4f6b-9f89-60fb3a7188eb" />
+show crypto ikev2 sa çıktısı ile IPSec Kurulumunu görebiliriz. Status ready ise IKE SA başarılı kurulmuştur.<br>
+<img width="924" height="195" alt="image" src="https://github.com/user-attachments/assets/97cc2c00-e338-419a-a23e-a4130c064f85" /><br>
+show crypto ipsec sa çıktısı. Encrypt/decrypt sayaçlarının ikisi de artıyorsa tünel sağlıklı, sadece encrypt artıyorsa karşı taraftan dönüş yok demektir.<br>
+<img width="826" height="962" alt="image" src="https://github.com/user-attachments/assets/3740b81e-d10e-4f6b-9f89-60fb3a7188eb" /><br>
 
