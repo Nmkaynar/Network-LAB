@@ -5,10 +5,10 @@ R2 router'ı adviretise ettiği 192.168.10.0/24 networkü için AS100 ve AS300 I
 İstediğimiz ise ISP1 olan AS500'ü tercih etmesi. Bu sebepten ötürü ISP2'nin vermiş olduğu 600:100 community si ile 192.168.10.0/24 prefixini tagliyerek AS600'a göndereceğiz. AS600 de 2 kere AS path prepend yaparak yolu uzatacak. Bu işlemin sonunda AS100 ve AS300 192.168.10.0/24 netwörüküne erişmek için ISP1'i tercih edecekler.
 Şu an ki durum
 
-AS100 (R1 Router)
-<img width="684" height="115" alt="image" src="https://github.com/user-attachments/assets/58f9581d-56bb-4bef-a04d-aa38cd618439" />
-AS300 (R3 Router)
-<img width="719" height="98" alt="image" src="https://github.com/user-attachments/assets/e33fef06-176e-45b4-8977-79a18518df67" />
+AS100 (R1 Router)<br>
+<img width="684" height="115" alt="image" src="https://github.com/user-attachments/assets/58f9581d-56bb-4bef-a04d-aa38cd618439" /><br>
+AS300 (R3 Router)<br>
+<img width="719" height="98" alt="image" src="https://github.com/user-attachments/assets/e33fef06-176e-45b4-8977-79a18518df67" /><br>
 Bunun için R2 de yapılması gerekenler
 
 ````
