@@ -30,10 +30,10 @@ router ospf 1
 ### Kontrol
 Config tamamlandıktan sonra ping atalım.
 PC1'den PC2'ye ping attığımızda PC1'in üretmiş olduğu ip paketi 
-<img width="756" height="114" alt="image" src="https://github.com/user-attachments/assets/db327fbd-10e8-4131-a1f6-2bcd839df831" />
-Paket Router'a geldiğinde Gre tüneline yönlendirilir. Bu noktada orjinal IP paketinin önüne bir GRE header, onun da önüne tünel source/destination IP'lerini taşıyan yeni bir dış IP header eklenir.
-<img width="784" height="116" alt="image" src="https://github.com/user-attachments/assets/e526bfcc-7024-40f5-a17a-063fccea583f" />
-Ancak Gre paketi şifrelemediği için güvenlik sağlanmamaktadır. Bunun için IPSec uygulanarak paketleri şifreler ve trafiğin güvenli olmasını sağlar.
+<img width="756" height="114" alt="image" src="https://github.com/user-attachments/assets/db327fbd-10e8-4131-a1f6-2bcd839df831" /><br>
+Paket Router'a geldiğinde Gre tüneline yönlendirilir. Bu noktada orjinal IP paketinin önüne bir GRE header, onun da önüne tünel source/destination IP'lerini taşıyan yeni bir dış IP header eklenir.<br>
+<img width="784" height="116" alt="image" src="https://github.com/user-attachments/assets/e526bfcc-7024-40f5-a17a-063fccea583f" /><br>
+Ancak Gre paketi şifrelemediği için güvenlik sağlanmamaktadır. Bunun için IPSec uygulanarak paketleri şifreler ve trafiğin güvenli olmasını sağlar.<br>
 IPSec ikev1 ile uygulama yapmış olacağız. 
 
 ## IPSec Config
