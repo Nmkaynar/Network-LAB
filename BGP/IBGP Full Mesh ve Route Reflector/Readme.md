@@ -10,7 +10,7 @@ bgp router-id 1.1.1.1
 neighbor 10.0.10.2 remote-as 65000
 network 192.168.10.0 mask 255.255.255.0
 ````
-Routing table da sadece R2'nin duyurduğu LAN networkü öğrenilmiş
+Routing table da sadece R2'nin duyurduğu LAN networkü öğrenilmiş<br>
 <img width="503" height="83" alt="image" src="https://github.com/user-attachments/assets/35795043-7e2d-466d-afaa-86a66b6ad65c" /><br>
 ### R2 için 
 ````
@@ -33,7 +33,7 @@ bgp router-id 3.3.3.3
 neighbor 10.0.11.1 remote-as 65000
 network 172.16.10.0 mask 255.255.255.0
 ````
-R1 de olduğu gibi R2 nin kendisinin duyurduğu networkü öğrenmiş
+R1 de olduğu gibi R2 nin kendisinin duyurduğu networkü öğrenmiş<br>
 <img width="508" height="81" alt="image" src="https://github.com/user-attachments/assets/48c68ceb-1aeb-4574-aee6-f52596b925f6" /><br>
 Tabloya baktığımızda IBGP loop engelleme kuralından dolayı R2, R1 'den öğrendiği networkü R3'e, R3 'ten öğrendiği networküde R1'e öğretmemiş. 
 Bu durumda yapılması gereken FULL MESH ya da Route Reflector.
@@ -98,7 +98,7 @@ R1 routing table
 
 <img width="512" height="128" alt="image" src="https://github.com/user-attachments/assets/f0be201c-83fe-46e1-bbda-cb74837beea7" /><br>
 
-R3 routing table
+R3 routing table<br>
 <img width="551" height="116" alt="image" src="https://github.com/user-attachments/assets/c93d2100-a8b9-47b3-8b8a-2847865c8225" /><br>
 
 
