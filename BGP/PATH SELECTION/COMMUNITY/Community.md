@@ -27,8 +27,8 @@ Burada standart community'ler incelenecek.
 
 ## ip bgp-community new-format
 Eski IOS'larda defaultta AA:NN şeklinde gözükmüyor.
-<img width="660" height="237" alt="image" src="https://github.com/user-attachments/assets/9f74991b-cab6-4e77-9b81-070c192f10fe" />
-Community: 32768100 şeklinde görüldüğü için ``ip bgp-community new-format`` komutunu aktif etmeliyiz.
+<img width="660" height="237" alt="image" src="https://github.com/user-attachments/assets/9f74991b-cab6-4e77-9b81-070c192f10fe" /><br>
+Community: 32768100 şeklinde görüldüğü için ``ip bgp-community new-format`` komutunu aktif etmeliyiz.<br>
 
 Komutu aktif ettikten sonra istediğimiz formata geldi.
 <img width="639" height="234" alt="image" src="https://github.com/user-attachments/assets/0564298c-2109-4e91-a7d6-89a9391e3814" />
