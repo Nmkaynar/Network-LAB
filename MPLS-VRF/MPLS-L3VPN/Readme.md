@@ -31,8 +31,8 @@ PE1 ve PE2 arasında update ile müşteri prefixleri taşınırken RD aynı pref
 Bu etiketler BGP Update ile gönderilir. 
 
 
-<img width="860" height="714" alt="image" src="https://github.com/user-attachments/assets/4cf1f5fc-3682-4ca8-87cc-f5fb56a7df1f" />
-RD ve RT etiketleri sadece control planede sadece MP-BGP kullanır, data plane de yani icmp data paketinde bunlar görülmez.
+<img width="860" height="714" alt="image" src="https://github.com/user-attachments/assets/4cf1f5fc-3682-4ca8-87cc-f5fb56a7df1f" /><br>
+RD ve RT etiketleri sadece control planede sadece MP-BGP kullanır, data plane de yani icmp data paketinde bunlar görülmez.<br>
 
 172.16.10.0/24 prefixi bgp update ile taşınırken 65000:100:172.16.10.0/24 şeklinde komşusuna advirtese edilir. Bu formata VPNv4 NLRI denmektedir.
 
@@ -58,8 +58,8 @@ PC1'in icmp paketi PE1 den çıktığında: iki adet MPLS label paketi almış.
 Outer Label: 19 etiketli olan mpls header, bu LDP den aldığı etiket ve MPLS hattında forwarding için kullanılır
 İnner Label : 21 etiketli olan mpls header, bu MP-BGP den aldığı etiket ve PE'lere gelen paketlerde bu etiket sayesinde paketin hangi VRF'ye ait olduğu belli olur.
 
-<img width="798" height="138" alt="image" src="https://github.com/user-attachments/assets/193b5beb-a171-4a42-af31-75abc519e151" />
-19 etiketli paket PE1 de LDP gelmektedir.  
+<img width="798" height="138" alt="image" src="https://github.com/user-attachments/assets/193b5beb-a171-4a42-af31-75abc519e151" /><br>
+19 etiketli paket PE1 de LDP gelmektedir.  <br>
 
 PC1'den çıkan paket PE1'e VRF Customer-A interface'inden girdi ve bu vrf'nin bgp tablosunda dst 172.16.20.0/24 için next hop 6.6.6.6 olarak görülmekte
 
