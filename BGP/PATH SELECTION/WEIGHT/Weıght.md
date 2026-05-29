@@ -24,27 +24,27 @@ Trace attığımızda R4 rotasını tercih ettiğini görüyoruz.
 <img width="636" height="148" alt="image" src="https://github.com/user-attachments/assets/da6c3a9e-e8b2-4053-99dd-e448d40d7902" /><br>
 Şimdi gelelim R2 den öğrendiği rotaların weight'ini  değiştirerek best path'i değiştrielim.
 
-Bunun için R1 Router'nda ``router bgp 65100`` altında ``neighbor 10.0.10.2 weight 100 `` komutunu kullanalım. Belirleyeceğimiz değer best rotanın weight değerinden büyük olması yeterli. 
-<img width="470" height="41" alt="image" src="https://github.com/user-attachments/assets/4ba06faa-197c-4d18-9da5-02f87604d6e4" />
+Bunun için R1 Router'nda ``router bgp 65100`` altında ``neighbor 10.0.10.2 weight 100 `` komutunu kullanalım. Belirleyeceğimiz değer best rotanın weight değerinden büyük olması yeterli. <br>
+<img width="470" height="41" alt="image" src="https://github.com/user-attachments/assets/4ba06faa-197c-4d18-9da5-02f87604d6e4" /><br>
 Bu işlemden sonra rotaların ya yeniden öğrenmesini bekleyceğiz yani doğal sürecinde update paketi beklinelecek 
 ya da  ``clear ip bgp 10.0.10.2 soft in`` komutunu çalıştırarak Route Refresh paketi gönderip update paketi alacağız.
 Bu komut ile BGP sesion düşürmeden, rotaları komşusundan yeniden ister. 
 
 Not: ``clear ip bgp 10.0.10.2`` şeklinde çalışıtırılırsa, BGP sesion düşer, TCP balantısı kapanır. Ve tekrar baştan kurulur. Buda BGP komşuluğu oturasıya kadar networkte kesintiye yol açar.
 
-İşlem sonucu best path'in R2(10.0.10.2) olduğunu gördük.
-<img width="742" height="193" alt="image" src="https://github.com/user-attachments/assets/a7816071-22f8-4e6f-94ba-4a146e74f205" />
+İşlem sonucu best path'in R2(10.0.10.2) olduğunu gördük.<br>
+<img width="742" height="193" alt="image" src="https://github.com/user-attachments/assets/a7816071-22f8-4e6f-94ba-4a146e74f205" /><br>
 
-Trace attığımızda da rotanın değiştini görüyoruz.
-<img width="595" height="140" alt="image" src="https://github.com/user-attachments/assets/3eb46f91-9adf-4733-854e-b94e832c70dd" />
+Trace attığımızda da rotanın değiştini görüyoruz.<br>
+<img width="595" height="140" alt="image" src="https://github.com/user-attachments/assets/3eb46f91-9adf-4733-854e-b94e832c70dd" /><br>
 
 ## Route Map 
 
 
-Show ip bgp tablosuna baktığımızda ``neighbor 10.0.10.2 weight 100`` ile R2 den öğrenilen tüm rotaların weight değerini değiştini görüyoruz. 
+Show ip bgp tablosuna baktığımızda ``neighbor 10.0.10.2 weight 100`` ile R2 den öğrenilen tüm rotaların weight değerini değiştini görüyoruz. <br>
 <img width="742" height="193" alt="image" src="https://github.com/user-attachments/assets/ecbf80a9-9552-4916-a5b1-cd595dcabbe7" />
 
-Peki sadece bazı  prefixlerin weightini değiştirecek isek yani sadece 172.16.10.0/24 networkü için R3'ü tercih etsin istiyorsak. Bu seferde Route map kullanmamız gerekir.
+Peki sadece bazı  prefixlerin weightini değiştirecek isek yani sadece 172.16.10.0/24 networkü için R3'ü tercih etsin istiyorsak. Bu seferde Route map kullanmamız gerekir.<br>
 
 ````
 ip prefix-list PL-WEIGHT permit 172.16.10.0/24
