@@ -1,3 +1,4 @@
+## LOCAL-PREFRENCE
 <img width="679" height="707" alt="image" src="https://github.com/user-attachments/assets/4994ee77-ea1b-48d5-950d-fdea3cf96efd" /> <br>
 Local  Pref, BGP path selection da Routerların ikinci baktığı değerdir. Bir AS içerisinde çıkış noktasını belirlemek için kullanılan BGP attribute'dur
 
@@ -20,7 +21,7 @@ Local Pref'i değiştirmenin iki yöntemi vardır.
 Şu an ki durumda internet çıkışı ISP1 dedir. Bunu ISP2 yapalım.
 
 <img width="659" height="128" alt="image" src="https://github.com/user-attachments/assets/ff81b02f-c13c-4ba6-bf06-a0e5b4f18fcc" /><br>
-R2 de ``bgp default local-preference 200`` komutunu girelim
+R2 de ``bgp default local-preference 200`` komutunu girelim<br>
 <img width="483" height="31" alt="image" src="https://github.com/user-attachments/assets/7ca52b8c-4a87-4aa8-af28-91649f7120f1" /><br>
 R1 artık internet çıkışı için R2'yi tercih etmeye başladı. 
 <img width="661" height="132" alt="image" src="https://github.com/user-attachments/assets/167cee2f-beed-4548-aa88-3153d4962c12" /><br>
@@ -59,7 +60,7 @@ Artık R1 ve R2 Router'ları 8.8.8.8 için ISP1, 9.9.9.9 için de ISP2'yi tercih
 <img width="644" height="116" alt="image" src="https://github.com/user-attachments/assets/e9981f69-c6b2-40a2-8be8-ce04bfa4eae2" /><br>
 <img width="660" height="125" alt="image" src="https://github.com/user-attachments/assets/5b8c01a1-7a83-4632-ae21-37df6bbe20c0" /><br>
 
-R3 te de bu değerin iletildiğini görebiliyoruz.
+R3 te de bu değerin iletildiğini görebiliyoruz.<br>
 <img width="640" height="96" alt="image" src="https://github.com/user-attachments/assets/70b90e0c-01f9-4ac2-a65e-7896ba3dc40d" />
 
 
