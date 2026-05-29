@@ -46,22 +46,22 @@ PE-P-PE aralarında OSPF yapılandırıldı.
 
 
 ### PE1 
-Tüm prefixleri bilmelidir.
-<img width="732" height="405" alt="image" src="https://github.com/user-attachments/assets/622318f0-e91e-4118-a449-3b55dbe4b0e3" />
+Tüm prefixleri bilmelidir.<br>
+<img width="732" height="405" alt="image" src="https://github.com/user-attachments/assets/622318f0-e91e-4118-a449-3b55dbe4b0e3" /><br>
 
 ### P1
-172.16.10.0/24 ve 192.168.10.0/24 prefixlerini bilmemektedir.
-<img width="734" height="345" alt="image" src="https://github.com/user-attachments/assets/9efe45a3-a91e-43b9-a1e6-43d004015488" />
+172.16.10.0/24 ve 192.168.10.0/24 prefixlerini bilmemektedir.<br>
+<img width="734" height="345" alt="image" src="https://github.com/user-attachments/assets/9efe45a3-a91e-43b9-a1e6-43d004015488" /><br>
 
 ### P2
-172.16.10.0/24 ve 192.168.10.0/24 prefixlerini bilmemektedir.
-<img width="731" height="361" alt="image" src="https://github.com/user-attachments/assets/76dfa88c-d2e4-402b-bd9a-18706b736c54" />
+172.16.10.0/24 ve 192.168.10.0/24 prefixlerini bilmemektedir.<br>
+<img width="731" height="361" alt="image" src="https://github.com/user-attachments/assets/76dfa88c-d2e4-402b-bd9a-18706b736c54" /><br>
 ### PE2
-tüm prefixleri bilmelidir.
-<img width="632" height="416" alt="image" src="https://github.com/user-attachments/assets/02b28ba9-d20e-4878-aacb-2c16704f98c4" />
+tüm prefixleri bilmelidir.<br>
+<img width="632" height="416" alt="image" src="https://github.com/user-attachments/assets/02b28ba9-d20e-4878-aacb-2c16704f98c4" /><br>
 
-PE'lerin arasında kalan P router CE arkasındaki networkleri bilmemektedir.Buna rağmen PC1 den PC2'ye ping gitmektedir.
-<img width="599" height="167" alt="image" src="https://github.com/user-attachments/assets/9b423c5c-7978-46ed-88bf-bce7f27c0b8c" />
+PE'lerin arasında kalan P router CE arkasındaki networkleri bilmemektedir.Buna rağmen PC1 den PC2'ye ping gitmektedir.<br>
+<img width="599" height="167" alt="image" src="https://github.com/user-attachments/assets/9b423c5c-7978-46ed-88bf-bce7f27c0b8c" /><br>
 
 ## Wiresharkta Paketlerin LABEL'lerini görelim
 
@@ -96,8 +96,8 @@ Pop Label demek tablodaki 19 local satırındaki prefixdekinden bir önceki rout
 <img width="709" height="166" alt="image" src="https://github.com/user-attachments/assets/15684940-973e-4cfc-acb6-2d18f80dd542" />
 
 
-Wiresharktada görüldüğü üzere label bulunmamaktadır. Bunun sebebide PE2 label çıkartmak ile uğraşmasın direkt ip forwarding yapabilsin diye.
-<img width="782" height="143" alt="image" src="https://github.com/user-attachments/assets/9231f0ae-6b90-426f-a9b4-5898f198ec65" />
+Wiresharktada görüldüğü üzere label bulunmamaktadır. Bunun sebebide PE2 label çıkartmak ile uğraşmasın direkt ip forwarding yapabilsin diye.<br>
+<img width="782" height="143" alt="image" src="https://github.com/user-attachments/assets/9231f0ae-6b90-426f-a9b4-5898f198ec65" /><br>
 ### PE2- CE2 Arasında
 
 CE1-PE1 arasında nasıl ise o şekilde ip forwarding yaparak gönderir.
