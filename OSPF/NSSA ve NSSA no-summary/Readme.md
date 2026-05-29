@@ -1,4 +1,4 @@
-#  NSSA ve NSSA no-summary
+<img width="1020" height="313" alt="image" src="https://github.com/user-attachments/assets/0bd5d1a6-fceb-4a2d-b790-4de189821d0d" />#  NSSA ve NSSA no-summary
 
 <img width="1098" height="566" alt="image" src="https://github.com/user-attachments/assets/7bb1863f-a639-4ecf-9b23-2df7e1811596" /><br>
 
@@ -45,7 +45,7 @@ R3 ve R4 çıktılarında bunu görebiliriz.
 <img width="1755" height="819" alt="image" src="https://github.com/user-attachments/assets/7d1a67b9-6da2-4853-98dc-9f719c9760bf" /><br>
 
 
-NSSA olan Area 1'e  default route enjekte etmek istiyor isek ABR Router'da (R2) ``area 1 nssa default-information-originate`` komutunu etkinleştirmeliyiz.
+NSSA olan Area 1'e  default route enjekte etmek istiyor isek ABR Router'da (R2) ``area 1 nssa default-information-originate`` komutunu etkinleştirmeliyiz.<br>
 <img width="568" height="34" alt="image" src="https://github.com/user-attachments/assets/a177f233-237e-4efb-a9bc-eea203cf2560" /><br>
 Komut aktif ettikten sonra R3'de default rota TYPE 7 LSA olarak duyurulur ve routing table O*N2 olarak gösterilir.
 
